@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+:root {
+  /* Core Surfaces (Spec 05 Strict Monochrome Palette) */
+  --bg-primary: #FFFFFF;
+  --bg-inverse: #000000;
+  --bg-subtle: #F7F7F7;
+
+  /* Text */
+  --text-primary: #000000;
+  --text-secondary: #525252;
+  --text-inverse: #FFFFFF;
+
+  /* Borders & Dividers */
+  --border-hairline: 1px solid #E5E5E5;
+  --border-strong: 1.5px solid #000000;
+  --border-color: #000000;
+  --border-hairline-color: #E5E5E5;
+
+  /* Interactive States */
+  --pill-bg: #FFFFFF;
+  --pill-border: 1px solid #000000;
+  --pill-hover-bg: #000000;
+  --pill-hover-text: #FFFFFF;
+
+  /* Radii & Spacing */
+  --radius-card: 12px;
+  --radius-pill: 9999px;
+  --radius-input: 8px;
+  --space-unit: 8px;
+}
+
+/* Optional High-Contrast Dark Mode Inversion */
+[data-theme="dark"] {
+  --bg-primary: #000000;
+  --bg-inverse: #FFFFFF;
+  --bg-subtle: #121212;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A3A3A3;
+  --text-inverse: #000000;
+  --border-hairline: 1px solid #262626;
+  --border-strong: 1.5px solid #FFFFFF;
+  --border-color: #FFFFFF;
+  --border-hairline-color: #262626;
+  --pill-bg: #000000;
+  --pill-border: 1px solid #FFFFFF;
+  --pill-hover-bg: #FFFFFF;
+  --pill-hover-text: #000000;
+}
+
+* {
+  box-shadow: none !important;
+}
+
+html,
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+.font-mono-meta {
+  font-family: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+.pill-btn {
+  background-color: var(--pill-bg);
+  color: var(--text-primary);
+  border: var(--pill-border);
+  border-radius: var(--radius-pill);
+  min-height: 36px;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.pill-btn:hover:not(:disabled),
+.pill-btn:active:not(:disabled) {
+  background-color: var(--pill-hover-bg);
+  color: var(--pill-hover-text);
+}
+
+@keyframes bwPulse {
+  0%, 80%, 100% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.bw-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: var(--text-primary);
+  display: inline-block;
+  animation: bwPulse 1.2s infinite ease-in-out;
+}
+
+.bw-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bw-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}

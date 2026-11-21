@@ -1,0 +1,1376 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "MoodBite AI",
+    "description": "Conversational mood-based food delivery concierge (hybrid LLM + deterministic ranking).",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "health"
+        ],
+        "summary": "Health Check",
+        "operationId": "health_check_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/catalog/stats": {
+      "get": {
+        "tags": [
+          "health"
+        ],
+        "summary": "Catalog Stats",
+        "operationId": "catalog_stats_api_v1_catalog_stats_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatalogStatsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/chat/turn": {
+      "post": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Chat Turn",
+        "operationId": "chat_turn_api_v1_chat_turn_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatTurnRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatTurnResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/chat/turn/stream": {
+      "post": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Chat Turn Stream",
+        "operationId": "chat_turn_stream_api_v1_chat_turn_stream_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatTurnRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/chat/refine": {
+      "post": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Chat Refine",
+        "operationId": "chat_refine_api_v1_chat_refine_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatRefineRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatTurnResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sessions/{session_id}": {
+      "get": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Get Session",
+        "operationId": "get_session_api_v1_sessions__session_id__get",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionDetailResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Delete Session",
+        "operationId": "delete_session_api_v1_sessions__session_id__delete",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Delete Session Api V1 Sessions  Session Id  Delete"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cart/add": {
+      "post": {
+        "tags": [
+          "cart"
+        ],
+        "summary": "Add Combo To Cart",
+        "operationId": "add_combo_to_cart_api_v1_cart_add_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddToCartRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CartResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cart/{session_id}": {
+      "get": {
+        "tags": [
+          "cart"
+        ],
+        "summary": "Get Cart",
+        "operationId": "get_cart_api_v1_cart__session_id__get",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CartResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cart/{session_id}/{combo_id}": {
+      "delete": {
+        "tags": [
+          "cart"
+        ],
+        "summary": "Remove From Cart",
+        "operationId": "remove_from_cart_api_v1_cart__session_id___combo_id__delete",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          },
+          {
+            "name": "combo_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Combo Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CartResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActiveFilters": {
+        "properties": {
+          "dietary_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "veg",
+                  "jain",
+                  "vegan",
+                  "eggetarian",
+                  "halal",
+                  "non_veg",
+                  "any"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dietary Type"
+          },
+          "max_budget_inr": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 5000.0,
+                "minimum": 50.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Budget Inr"
+          }
+        },
+        "type": "object",
+        "title": "ActiveFilters"
+      },
+      "AddToCartRequest": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Session Id"
+          },
+          "combo_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Combo Id"
+          },
+          "quantity": {
+            "type": "integer",
+            "maximum": 20.0,
+            "minimum": 1.0,
+            "title": "Quantity",
+            "default": 1
+          },
+          "combo": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ComboRecommendation"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "combo_id"
+        ],
+        "title": "AddToCartRequest"
+      },
+      "CartEntry": {
+        "properties": {
+          "combo": {
+            "$ref": "#/components/schemas/ComboRecommendation"
+          },
+          "quantity": {
+            "type": "integer",
+            "title": "Quantity",
+            "default": 1
+          },
+          "line_total_inr": {
+            "type": "integer",
+            "title": "Line Total Inr"
+          }
+        },
+        "type": "object",
+        "required": [
+          "combo",
+          "line_total_inr"
+        ],
+        "title": "CartEntry"
+      },
+      "CartResponse": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/CartEntry"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total_items": {
+            "type": "integer",
+            "title": "Total Items",
+            "default": 0
+          },
+          "total_price_inr": {
+            "type": "integer",
+            "title": "Total Price Inr",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id"
+        ],
+        "title": "CartResponse"
+      },
+      "CatalogStatsResponse": {
+        "properties": {
+          "total_restaurants": {
+            "type": "integer",
+            "title": "Total Restaurants"
+          },
+          "open_restaurants": {
+            "type": "integer",
+            "title": "Open Restaurants"
+          },
+          "total_items": {
+            "type": "integer",
+            "title": "Total Items"
+          },
+          "main_dishes": {
+            "type": "integer",
+            "title": "Main Dishes"
+          },
+          "boosters": {
+            "type": "integer",
+            "title": "Boosters"
+          },
+          "veg_items": {
+            "type": "integer",
+            "title": "Veg Items"
+          },
+          "jain_items": {
+            "type": "integer",
+            "title": "Jain Items"
+          },
+          "vegan_items": {
+            "type": "integer",
+            "title": "Vegan Items"
+          },
+          "non_veg_items": {
+            "type": "integer",
+            "title": "Non Veg Items"
+          },
+          "egg_items": {
+            "type": "integer",
+            "title": "Egg Items"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_restaurants",
+          "open_restaurants",
+          "total_items",
+          "main_dishes",
+          "boosters",
+          "veg_items",
+          "jain_items",
+          "vegan_items",
+          "non_veg_items",
+          "egg_items"
+        ],
+        "title": "CatalogStatsResponse"
+      },
+      "ChatRefineRequest": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Session Id"
+          },
+          "user_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "User Id",
+            "default": "usr_guest"
+          },
+          "chip": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Chip"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "active_filters": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ActiveFilters"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "chip"
+        ],
+        "title": "ChatRefineRequest"
+      },
+      "ChatTurnRequest": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Session Id"
+          },
+          "user_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "User Id",
+            "default": "usr_guest"
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 1000,
+            "minLength": 1,
+            "title": "Message"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "active_filters": {
+            "$ref": "#/components/schemas/ActiveFilters"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "message"
+        ],
+        "title": "ChatTurnRequest"
+      },
+      "ChatTurnResponse": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "turn_count": {
+            "type": "integer",
+            "title": "Turn Count"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "ask_followup",
+              "recommend_combos",
+              "crisis_support"
+            ],
+            "title": "Action"
+          },
+          "agent_message": {
+            "type": "string",
+            "title": "Agent Message"
+          },
+          "user_context": {
+            "$ref": "#/components/schemas/UserContextSummary"
+          },
+          "full_context": {
+            "$ref": "#/components/schemas/UserContext"
+          },
+          "recommendations": {
+            "items": {
+              "$ref": "#/components/schemas/ComboRecommendation"
+            },
+            "type": "array",
+            "title": "Recommendations"
+          },
+          "quick_reply_pills": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Quick Reply Pills"
+          },
+          "crisis_resources": {
+            "items": {
+              "$ref": "#/components/schemas/CrisisResource"
+            },
+            "type": "array",
+            "title": "Crisis Resources"
+          },
+          "latency_ms": {
+            "type": "number",
+            "title": "Latency Ms",
+            "default": 0.0
+          },
+          "llm_mode": {
+            "type": "string",
+            "enum": [
+              "openrouter",
+              "openai",
+              "gemini",
+              "ollama",
+              "offline",
+              "deterministic_fallback",
+              "crisis_guardrail"
+            ],
+            "title": "Llm Mode",
+            "default": "offline"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "turn_count",
+          "action",
+          "agent_message",
+          "user_context",
+          "full_context"
+        ],
+        "title": "ChatTurnResponse"
+      },
+      "ComboItem": {
+        "properties": {
+          "item_id": {
+            "type": "string",
+            "title": "Item Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "price_inr": {
+            "type": "integer",
+            "title": "Price Inr"
+          },
+          "dietary_type": {
+            "type": "string",
+            "enum": [
+              "veg",
+              "egg",
+              "non_veg"
+            ],
+            "title": "Dietary Type",
+            "default": "veg"
+          },
+          "category": {
+            "type": "string",
+            "title": "Category",
+            "default": "main_bowl"
+          }
+        },
+        "type": "object",
+        "required": [
+          "item_id",
+          "name",
+          "price_inr"
+        ],
+        "title": "ComboItem"
+      },
+      "ComboRecommendation": {
+        "properties": {
+          "combo_id": {
+            "type": "string",
+            "title": "Combo Id"
+          },
+          "mood_badge": {
+            "type": "string",
+            "title": "Mood Badge"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "restaurant": {
+            "$ref": "#/components/schemas/ComboRestaurant"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ComboItem"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total_price_inr": {
+            "type": "integer",
+            "title": "Total Price Inr"
+          },
+          "why_it_fits": {
+            "type": "string",
+            "title": "Why It Fits"
+          },
+          "match_score": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Match Score"
+          },
+          "dietary_type": {
+            "type": "string",
+            "enum": [
+              "veg",
+              "egg",
+              "non_veg"
+            ],
+            "title": "Dietary Type",
+            "default": "veg"
+          }
+        },
+        "type": "object",
+        "required": [
+          "combo_id",
+          "mood_badge",
+          "title",
+          "restaurant",
+          "items",
+          "total_price_inr",
+          "why_it_fits",
+          "match_score"
+        ],
+        "title": "ComboRecommendation"
+      },
+      "ComboRestaurant": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "rating": {
+            "type": "number",
+            "title": "Rating"
+          },
+          "eta_mins": {
+            "type": "integer",
+            "title": "Eta Mins"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "rating",
+          "eta_mins"
+        ],
+        "title": "ComboRestaurant"
+      },
+      "CrisisResource": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "contact": {
+            "type": "string",
+            "title": "Contact"
+          },
+          "availability": {
+            "type": "string",
+            "title": "Availability"
+          },
+          "region": {
+            "type": "string",
+            "title": "Region"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "contact",
+          "availability",
+          "region"
+        ],
+        "title": "CrisisResource"
+      },
+      "FoodPreferences": {
+        "properties": {
+          "craving_profiles": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Craving Profiles"
+          },
+          "spice_tolerance": {
+            "type": "string",
+            "enum": [
+              "mild",
+              "medium",
+              "high"
+            ],
+            "title": "Spice Tolerance",
+            "default": "medium"
+          },
+          "effort_to_eat": {
+            "type": "string",
+            "enum": [
+              "zero_mess",
+              "standard"
+            ],
+            "title": "Effort To Eat",
+            "default": "standard"
+          },
+          "portion_size": {
+            "type": "string",
+            "enum": [
+              "light_snack",
+              "regular_meal",
+              "hearty_feast"
+            ],
+            "title": "Portion Size",
+            "default": "regular_meal"
+          },
+          "excluded_ingredients": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Excluded Ingredients"
+          }
+        },
+        "type": "object",
+        "title": "FoodPreferences"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HardConstraints": {
+        "properties": {
+          "dietary_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "veg",
+                  "jain",
+                  "vegan",
+                  "eggetarian",
+                  "halal",
+                  "non_veg",
+                  "any"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dietary Type"
+          },
+          "allergies": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Allergies"
+          },
+          "max_budget_inr": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 5000.0,
+                "minimum": 50.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Budget Inr"
+          },
+          "max_eta_mins": {
+            "type": "integer",
+            "maximum": 90.0,
+            "minimum": 10.0,
+            "title": "Max Eta Mins",
+            "default": 35
+          }
+        },
+        "type": "object",
+        "title": "HardConstraints"
+      },
+      "HealthResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "default": "ok"
+          },
+          "app": {
+            "type": "string",
+            "title": "App"
+          },
+          "version": {
+            "type": "string",
+            "title": "Version"
+          },
+          "llm_provider": {
+            "type": "string",
+            "title": "Llm Provider"
+          },
+          "catalog_restaurants": {
+            "type": "integer",
+            "title": "Catalog Restaurants"
+          },
+          "catalog_items": {
+            "type": "integer",
+            "title": "Catalog Items"
+          },
+          "storage_backend": {
+            "type": "string",
+            "title": "Storage Backend"
+          },
+          "catalog_backend": {
+            "type": "string",
+            "title": "Catalog Backend"
+          },
+          "daily_request_limit": {
+            "type": "integer",
+            "title": "Daily Request Limit",
+            "default": 20
+          },
+          "daily_requests_used": {
+            "type": "integer",
+            "title": "Daily Requests Used",
+            "default": 0
+          },
+          "daily_requests_remaining": {
+            "type": "integer",
+            "title": "Daily Requests Remaining",
+            "default": 20
+          }
+        },
+        "type": "object",
+        "required": [
+          "app",
+          "version",
+          "llm_provider",
+          "catalog_restaurants",
+          "catalog_items",
+          "storage_backend",
+          "catalog_backend"
+        ],
+        "title": "HealthResponse"
+      },
+      "Location": {
+        "properties": {
+          "lat": {
+            "type": "number",
+            "title": "Lat",
+            "default": 28.6139
+          },
+          "lng": {
+            "type": "number",
+            "title": "Lng",
+            "default": 77.209
+          }
+        },
+        "type": "object",
+        "title": "Location"
+      },
+      "RoutingState": {
+        "properties": {
+          "state_confidence": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "State Confidence",
+            "default": 0.3
+          },
+          "next_action": {
+            "type": "string",
+            "enum": [
+              "ask_followup",
+              "recommend_combos",
+              "crisis_support"
+            ],
+            "title": "Next Action",
+            "default": "ask_followup"
+          },
+          "clarifying_question": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Clarifying Question"
+          }
+        },
+        "type": "object",
+        "title": "RoutingState"
+      },
+      "SessionDetailResponse": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "turn_count": {
+            "type": "integer",
+            "title": "Turn Count"
+          },
+          "user_context": {
+            "$ref": "#/components/schemas/UserContext"
+          },
+          "chat_history": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Chat History"
+          },
+          "recommendations": {
+            "items": {
+              "$ref": "#/components/schemas/ComboRecommendation"
+            },
+            "type": "array",
+            "title": "Recommendations"
+          },
+          "cart": {
+            "$ref": "#/components/schemas/CartResponse"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "turn_count",
+          "user_context",
+          "cart"
+        ],
+        "title": "SessionDetailResponse"
+      },
+      "UserContext": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "turn_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Turn Count",
+            "default": 0
+          },
+          "user_state": {
+            "$ref": "#/components/schemas/UserState"
+          },
+          "food_preferences": {
+            "$ref": "#/components/schemas/FoodPreferences"
+          },
+          "hard_constraints": {
+            "$ref": "#/components/schemas/HardConstraints"
+          },
+          "routing": {
+            "$ref": "#/components/schemas/RoutingState"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id"
+        ],
+        "title": "UserContext"
+      },
+      "UserContextSummary": {
+        "properties": {
+          "primary_mood": {
+            "type": "string",
+            "title": "Primary Mood"
+          },
+          "energy_level": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "title": "Energy Level"
+          },
+          "effort_to_eat": {
+            "type": "string",
+            "enum": [
+              "zero_mess",
+              "standard"
+            ],
+            "title": "Effort To Eat"
+          },
+          "max_eta_mins": {
+            "type": "integer",
+            "title": "Max Eta Mins"
+          },
+          "dietary_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "veg",
+                  "jain",
+                  "vegan",
+                  "eggetarian",
+                  "halal",
+                  "non_veg",
+                  "any"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dietary Type"
+          },
+          "allergies": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Allergies"
+          },
+          "max_budget_inr": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Budget Inr"
+          },
+          "craving_profiles": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Craving Profiles"
+          },
+          "spice_tolerance": {
+            "type": "string",
+            "title": "Spice Tolerance",
+            "default": "medium"
+          },
+          "state_confidence": {
+            "type": "number",
+            "title": "State Confidence",
+            "default": 0.0
+          }
+        },
+        "type": "object",
+        "required": [
+          "primary_mood",
+          "energy_level",
+          "effort_to_eat",
+          "max_eta_mins"
+        ],
+        "title": "UserContextSummary"
+      },
+      "UserState": {
+        "properties": {
+          "primary_mood": {
+            "type": "string",
+            "title": "Primary Mood",
+            "default": "neutral_hungry"
+          },
+          "emotional_valence": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": -1.0,
+            "title": "Emotional Valence",
+            "default": 0.0
+          },
+          "energy_level": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "title": "Energy Level",
+            "default": "medium"
+          },
+          "stress_level": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "title": "Stress Level",
+            "default": "low"
+          },
+          "goal": {
+            "type": "string",
+            "title": "Goal",
+            "default": "satisfying_meal"
+          }
+        },
+        "type": "object",
+        "title": "UserState"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

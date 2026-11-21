@@ -1,0 +1,5294 @@
+{
+  "restaurants": [
+    {
+      "id": "rest_882",
+      "name": "Punjabi Angithi",
+      "rating": 4.4,
+      "lat": 28.6195,
+      "lng": 77.216,
+      "base_prep_mins": 14,
+      "is_open": true
+    },
+    {
+      "id": "rest_101",
+      "name": "Biryani Blues Express",
+      "rating": 4.5,
+      "lat": 28.6105,
+      "lng": 77.203,
+      "base_prep_mins": 12,
+      "is_open": true
+    },
+    {
+      "id": "rest_102",
+      "name": "Ghar Ka Khana Kitchen",
+      "rating": 4.6,
+      "lat": 28.617,
+      "lng": 77.2055,
+      "base_prep_mins": 10,
+      "is_open": true
+    },
+    {
+      "id": "rest_103",
+      "name": "Roll & Rumble",
+      "rating": 4.3,
+      "lat": 28.609,
+      "lng": 77.2135,
+      "base_prep_mins": 11,
+      "is_open": true
+    },
+    {
+      "id": "rest_104",
+      "name": "Wok & Chill",
+      "rating": 4.2,
+      "lat": 28.622,
+      "lng": 77.202,
+      "base_prep_mins": 12,
+      "is_open": true
+    },
+    {
+      "id": "rest_105",
+      "name": "Dakshin Comfort",
+      "rating": 4.7,
+      "lat": 28.6152,
+      "lng": 77.218,
+      "base_prep_mins": 10,
+      "is_open": true
+    },
+    {
+      "id": "rest_106",
+      "name": "Sattvik Pure Rasoi",
+      "rating": 4.6,
+      "lat": 28.6188,
+      "lng": 77.211,
+      "base_prep_mins": 11,
+      "is_open": true
+    },
+    {
+      "id": "rest_107",
+      "name": "Green Bowl Collective",
+      "rating": 4.5,
+      "lat": 28.6122,
+      "lng": 77.2195,
+      "base_prep_mins": 11,
+      "is_open": true
+    },
+    {
+      "id": "rest_108",
+      "name": "Kathi Junction",
+      "rating": 4.3,
+      "lat": 28.6065,
+      "lng": 77.208,
+      "base_prep_mins": 10,
+      "is_open": true
+    },
+    {
+      "id": "rest_109",
+      "name": "Makhani House",
+      "rating": 4.5,
+      "lat": 28.624,
+      "lng": 77.214,
+      "base_prep_mins": 14,
+      "is_open": true
+    },
+    {
+      "id": "rest_110",
+      "name": "Soup & Sip Bistro",
+      "rating": 4.4,
+      "lat": 28.616,
+      "lng": 77.1985,
+      "base_prep_mins": 9,
+      "is_open": true
+    },
+    {
+      "id": "rest_111",
+      "name": "Mumbai Street Bowl",
+      "rating": 4.2,
+      "lat": 28.6045,
+      "lng": 77.2165,
+      "base_prep_mins": 10,
+      "is_open": true
+    },
+    {
+      "id": "rest_112",
+      "name": "Dilli Chaat & Bowls",
+      "rating": 4.1,
+      "lat": 28.62,
+      "lng": 77.196,
+      "base_prep_mins": 9,
+      "is_open": true
+    },
+    {
+      "id": "rest_113",
+      "name": "Spice Route Noodles",
+      "rating": 4.4,
+      "lat": 28.608,
+      "lng": 77.197,
+      "base_prep_mins": 12,
+      "is_open": true
+    },
+    {
+      "id": "rest_114",
+      "name": "Warm Hearth Bakery & Cafe",
+      "rating": 4.6,
+      "lat": 28.625,
+      "lng": 77.2085,
+      "base_prep_mins": 11,
+      "is_open": true
+    },
+    {
+      "id": "rest_115",
+      "name": "Nizam's Fast Kitchen",
+      "rating": 4.5,
+      "lat": 28.6112,
+      "lng": 77.2245,
+      "base_prep_mins": 13,
+      "is_open": true
+    },
+    {
+      "id": "rest_116",
+      "name": "Khichdi Express",
+      "rating": 4.5,
+      "lat": 28.6145,
+      "lng": 77.2015,
+      "base_prep_mins": 9,
+      "is_open": true
+    },
+    {
+      "id": "rest_117",
+      "name": "Ahimsa Vegan Kitchen",
+      "rating": 4.6,
+      "lat": 28.618,
+      "lng": 77.222,
+      "base_prep_mins": 11,
+      "is_open": true
+    },
+    {
+      "id": "rest_118",
+      "name": "Tandoor Craft Bowls",
+      "rating": 4.3,
+      "lat": 28.602,
+      "lng": 77.204,
+      "base_prep_mins": 13,
+      "is_open": true
+    },
+    {
+      "id": "rest_119",
+      "name": "Midnight Cravings Co.",
+      "rating": 4.4,
+      "lat": 28.627,
+      "lng": 77.204,
+      "base_prep_mins": 12,
+      "is_open": true
+    },
+    {
+      "id": "rest_991",
+      "name": "Slow Clay Oven",
+      "rating": 4.8,
+      "lat": 28.659,
+      "lng": 77.265,
+      "base_prep_mins": 34,
+      "is_open": true
+    },
+    {
+      "id": "rest_992",
+      "name": "Closed Heritage Dhaba",
+      "rating": 4.9,
+      "lat": 28.614,
+      "lng": 77.2095,
+      "base_prep_mins": 8,
+      "is_open": false
+    }
+  ],
+  "menu_items": [
+    {
+      "id": "dish_10492",
+      "restaurant_id": "rest_882",
+      "name": "Homestyle Rajma Chawal Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 179,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "comfort_classic",
+        "nostalgic",
+        "grounding",
+        "cheer_up",
+        "tired_and_down"
+      ],
+      "sensory_tags": [
+        "warm",
+        "hearty",
+        "mildly_spiced",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.86,
+      "heavy_index": 0.65,
+      "pairing_affinities": [
+        "bev_201",
+        "bev_202",
+        "des_203"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_882_2",
+      "restaurant_id": "rest_882",
+      "name": "Dal Makhani & Jeera Rice Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 199,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "comfort_classic",
+        "nostalgic",
+        "celebratory_happy",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "warm",
+        "creamy",
+        "rich",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.88,
+      "heavy_index": 0.78,
+      "pairing_affinities": [
+        "bev_201",
+        "des_203",
+        "bev_202"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_882_3",
+      "restaurant_id": "rest_882",
+      "name": "Kadhi Pakora Chawal Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 159,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "comfort_classic",
+        "nostalgic",
+        "tired_and_down",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "warm",
+        "tangy",
+        "soft",
+        "homestyle"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.82,
+      "heavy_index": 0.58,
+      "pairing_affinities": [
+        "bev_201",
+        "bev_202"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_882_4",
+      "restaurant_id": "rest_882",
+      "name": "Smoky Paneer Tikka Roll",
+      "category": "roll_wrap",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 189,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "sensory_release",
+        "bold_spicy",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "spicy",
+        "smoky",
+        "crunchy",
+        "charred"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.85,
+      "heavy_index": 0.62,
+      "pairing_affinities": [
+        "bev_202",
+        "bev_204"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_882_5",
+      "restaurant_id": "rest_882",
+      "name": "Butter Chicken Rice Bowl",
+      "category": "main_bowl",
+      "dietary_type": "non_veg",
+      "dietary_tags": [
+        "halal"
+      ],
+      "allergens": [
+        "dairy",
+        "nuts"
+      ],
+      "price_inr": 239,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "celebratory_happy",
+        "comfort_classic",
+        "cheer_up",
+        "indulgent"
+      ],
+      "sensory_tags": [
+        "warm",
+        "creamy",
+        "rich",
+        "savory"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.91,
+      "heavy_index": 0.76,
+      "pairing_affinities": [
+        "bev_201",
+        "des_203"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_201",
+      "restaurant_id": "rest_882",
+      "name": "Coca-Cola Can (300ml)",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "fizzy_sweet_kick",
+        "cheer_up",
+        "tired_and_down",
+        "refreshing"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "chilled",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_202",
+      "restaurant_id": "rest_882",
+      "name": "Masala Chaas",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 45,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "cooling",
+        "light_comfort",
+        "stressed_angry",
+        "digestive"
+      ],
+      "sensory_tags": [
+        "cool",
+        "tangy",
+        "spiced",
+        "light"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_204",
+      "restaurant_id": "rest_882",
+      "name": "Mint Masala Lemonade",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 55,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "cooling",
+        "refreshing",
+        "stressed_angry",
+        "sluggish_heavy"
+      ],
+      "sensory_tags": [
+        "chilled",
+        "citrus",
+        "minty",
+        "tangy"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_203",
+      "restaurant_id": "rest_882",
+      "name": "Warm Gulab Jamun (2 pcs)",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 55,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sweet_treat",
+        "nostalgic",
+        "heartbroken_low",
+        "cheer_up",
+        "celebratory_happy"
+      ],
+      "sensory_tags": [
+        "warm",
+        "sweet",
+        "soft",
+        "syrupy"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_101_1",
+      "restaurant_id": "rest_101",
+      "name": "Subz Dum Biryani Bowl",
+      "category": "biryani_rice",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 189,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "comfort_classic",
+        "tired_and_down",
+        "cheer_up",
+        "stressed_angry"
+      ],
+      "sensory_tags": [
+        "warm",
+        "aromatic",
+        "spiced",
+        "hearty"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.85,
+      "heavy_index": 0.68,
+      "pairing_affinities": [
+        "bev_101_1",
+        "bev_101_2",
+        "des_101_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_101_2",
+      "restaurant_id": "rest_101",
+      "name": "Paneer 65 Spice Biryani Bowl",
+      "category": "biryani_rice",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 219,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "sensory_release"
+      ],
+      "sensory_tags": [
+        "spicy",
+        "fiery",
+        "aromatic",
+        "hearty"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.87,
+      "heavy_index": 0.72,
+      "pairing_affinities": [
+        "bev_101_2",
+        "bev_101_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_101_3",
+      "restaurant_id": "rest_101",
+      "name": "Hyderabadi Chicken Dum Biryani Bowl",
+      "category": "biryani_rice",
+      "dietary_type": "non_veg",
+      "dietary_tags": [
+        "halal"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 249,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "celebratory_happy",
+        "comfort_classic",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "warm",
+        "aromatic",
+        "spiced",
+        "rich"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.92,
+      "heavy_index": 0.75,
+      "pairing_affinities": [
+        "bev_101_1",
+        "des_101_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_101_4",
+      "restaurant_id": "rest_101",
+      "name": "Egg Masala Biryani Bowl",
+      "category": "biryani_rice",
+      "dietary_type": "egg",
+      "dietary_tags": [],
+      "allergens": [
+        "egg",
+        "dairy"
+      ],
+      "price_inr": 199,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "comfort_classic",
+        "bored_restless"
+      ],
+      "sensory_tags": [
+        "warm",
+        "spiced",
+        "filling"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.82,
+      "heavy_index": 0.68,
+      "pairing_affinities": [
+        "bev_101_1",
+        "bev_101_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_101_5",
+      "restaurant_id": "rest_101",
+      "name": "Mirchi Salan & Veg Pulao Bowl",
+      "category": "biryani_rice",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 149,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "budget_friendly",
+        "tired_and_down",
+        "comfort_classic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "mildly_spiced",
+        "aromatic"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.79,
+      "heavy_index": 0.55,
+      "pairing_affinities": [
+        "bev_101_1",
+        "bev_101_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_101_1",
+      "restaurant_id": "rest_101",
+      "name": "Chilled Thums Up (300ml)",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "fizzy_sweet_kick",
+        "cheer_up",
+        "tired_and_down"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "chilled",
+        "bold"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_101_2",
+      "restaurant_id": "rest_101",
+      "name": "Burani Mint Chaas",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 45,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "cooling",
+        "stressed_angry",
+        "digestive"
+      ],
+      "sensory_tags": [
+        "cool",
+        "minty",
+        "tangy"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_101_3",
+      "restaurant_id": "rest_101",
+      "name": "Double Ka Meetha Cup",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten",
+        "nuts"
+      ],
+      "price_inr": 69,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sweet_treat",
+        "celebratory_happy",
+        "heartbroken_low"
+      ],
+      "sensory_tags": [
+        "warm",
+        "sweet",
+        "rich"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_102_1",
+      "restaurant_id": "rest_102",
+      "name": "Ghee Dal Khichdi Comfort Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 149,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "sluggish_heavy",
+        "comfort_classic",
+        "nostalgic",
+        "light_comfort"
+      ],
+      "sensory_tags": [
+        "warm",
+        "soft",
+        "mild",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.86,
+      "heavy_index": 0.38,
+      "pairing_affinities": [
+        "bev_102_1",
+        "des_102_3",
+        "bev_102_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_102_2",
+      "restaurant_id": "rest_102",
+      "name": "Homestyle Chole Chawal Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 155,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "comfort_classic",
+        "nostalgic",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "warm",
+        "tangy",
+        "hearty",
+        "mildly_spiced"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.84,
+      "heavy_index": 0.64,
+      "pairing_affinities": [
+        "bev_102_1",
+        "bev_102_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_102_3",
+      "restaurant_id": "rest_102",
+      "name": "Jain Dal Tadka & Jeera Rice Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 159,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "comfort_classic",
+        "nostalgic",
+        "tired_and_down",
+        "light_comfort"
+      ],
+      "sensory_tags": [
+        "warm",
+        "mild",
+        "homestyle",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.82,
+      "heavy_index": 0.45,
+      "pairing_affinities": [
+        "bev_102_2",
+        "bev_102_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_102_4",
+      "restaurant_id": "rest_102",
+      "name": "Aloo Matar Ghee Phulka Plate",
+      "category": "comfort_plate",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 169,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "nostalgic",
+        "comfort_classic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "homestyle",
+        "soft"
+      ],
+      "effort_to_eat": "standard",
+      "dopamine_score": 0.78,
+      "heavy_index": 0.58,
+      "pairing_affinities": [
+        "bev_102_1",
+        "des_102_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_102_5",
+      "restaurant_id": "rest_102",
+      "name": "Moong Dal Halwa & Khichdi Duo",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "nuts"
+      ],
+      "price_inr": 189,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "heartbroken_low",
+        "tired_and_down",
+        "nostalgic",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "warm",
+        "sweet",
+        "soothing",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.9,
+      "heavy_index": 0.62,
+      "pairing_affinities": [
+        "bev_102_2",
+        "bev_102_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_102_1",
+      "restaurant_id": "rest_102",
+      "name": "Chilled Limca (300ml)",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 38,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "fizzy_sweet_kick",
+        "refreshing",
+        "tired_and_down",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "chilled",
+        "citrus"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_102_2",
+      "restaurant_id": "rest_102",
+      "name": "Fresh Nimbu Pani",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 35,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "light_comfort",
+        "cooling",
+        "sluggish_heavy",
+        "refreshing"
+      ],
+      "sensory_tags": [
+        "cool",
+        "citrus",
+        "light"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_102_3",
+      "restaurant_id": "rest_102",
+      "name": "Warm Besan Ladoo (2 pcs)",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "nuts"
+      ],
+      "price_inr": 49,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "nostalgic",
+        "sweet_treat",
+        "heartbroken_low"
+      ],
+      "sensory_tags": [
+        "sweet",
+        "nutty",
+        "melt_in_mouth"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_103_1",
+      "restaurant_id": "rest_103",
+      "name": "Fiery Paneer Tikka Roll",
+      "category": "roll_wrap",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 179,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "sensory_release",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "spicy",
+        "smoky",
+        "crunchy",
+        "warm"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.87,
+      "heavy_index": 0.58,
+      "pairing_affinities": [
+        "bev_103_1",
+        "bev_103_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_103_2",
+      "restaurant_id": "rest_103",
+      "name": "Crispy Falafel Hummus Wrap",
+      "category": "roll_wrap",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [
+        "gluten",
+        "sesame"
+      ],
+      "price_inr": 159,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "bored_restless",
+        "crunchy",
+        "tired_and_down",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "crunchy",
+        "creamy",
+        "tangy",
+        "fresh"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.81,
+      "heavy_index": 0.5,
+      "pairing_affinities": [
+        "bev_103_1",
+        "bev_103_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_103_3",
+      "restaurant_id": "rest_103",
+      "name": "Double Egg Chilli Kathi Roll",
+      "category": "roll_wrap",
+      "dietary_type": "egg",
+      "dietary_tags": [],
+      "allergens": [
+        "egg",
+        "gluten"
+      ],
+      "price_inr": 165,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "tired_and_down"
+      ],
+      "sensory_tags": [
+        "spicy",
+        "crispy",
+        "savory"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.84,
+      "heavy_index": 0.6,
+      "pairing_affinities": [
+        "bev_103_2",
+        "bev_103_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_103_4",
+      "restaurant_id": "rest_103",
+      "name": "Peri-Peri Chicken Seekh Roll",
+      "category": "roll_wrap",
+      "dietary_type": "non_veg",
+      "dietary_tags": [
+        "halal"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "price_inr": 199,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "celebratory_happy"
+      ],
+      "sensory_tags": [
+        "spicy",
+        "smoky",
+        "crunchy"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.88,
+      "heavy_index": 0.63,
+      "pairing_affinities": [
+        "bev_103_1",
+        "bev_103_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_103_5",
+      "restaurant_id": "rest_103",
+      "name": "Achari Aloo Crisp Wrap",
+      "category": "roll_wrap",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "price_inr": 139,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "budget_friendly",
+        "bored_restless",
+        "stressed_angry"
+      ],
+      "sensory_tags": [
+        "tangy",
+        "crunchy",
+        "spiced"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.79,
+      "heavy_index": 0.52,
+      "pairing_affinities": [
+        "bev_103_1",
+        "bev_103_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_103_1",
+      "restaurant_id": "rest_103",
+      "name": "Masala Mint Lemonade",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 49,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "cooling",
+        "stressed_angry",
+        "refreshing",
+        "citrus"
+      ],
+      "sensory_tags": [
+        "chilled",
+        "tangy",
+        "minty"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_103_2",
+      "restaurant_id": "rest_103",
+      "name": "Coca-Cola Zero Can (300ml)",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "fizzy_sweet_kick",
+        "cheer_up",
+        "refreshing"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "chilled",
+        "crisp"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_103_3",
+      "restaurant_id": "rest_103",
+      "name": "Belgian Choco Brownie",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 79,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sweet_treat",
+        "heartbroken_low",
+        "celebratory_happy"
+      ],
+      "sensory_tags": [
+        "warm",
+        "fudgy",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_104_1",
+      "restaurant_id": "rest_104",
+      "name": "Chilli Garlic Veg Hakka Noodles",
+      "category": "noodle_soup",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [
+        "gluten",
+        "soy"
+      ],
+      "price_inr": 169,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "bored_restless",
+        "sensory_release"
+      ],
+      "sensory_tags": [
+        "spicy",
+        "garlicky",
+        "saucy",
+        "hot"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.86,
+      "heavy_index": 0.6,
+      "pairing_affinities": [
+        "bev_104_1",
+        "bev_104_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_104_2",
+      "restaurant_id": "rest_104",
+      "name": "Schezwan Crispy Tofu Rice Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [
+        "soy"
+      ],
+      "price_inr": 185,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "bored_restless"
+      ],
+      "sensory_tags": [
+        "spicy",
+        "crispy",
+        "tangy",
+        "hot"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.85,
+      "heavy_index": 0.56,
+      "pairing_affinities": [
+        "bev_104_1",
+        "bev_104_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_104_3",
+      "restaurant_id": "rest_104",
+      "name": "Hot & Sour Clear Veg Soup Bowl",
+      "category": "noodle_soup",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [
+        "soy"
+      ],
+      "price_inr": 139,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "light_comfort",
+        "stressed_angry",
+        "post_illness"
+      ],
+      "sensory_tags": [
+        "warm",
+        "brothy",
+        "tangy",
+        "light"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.25,
+      "pairing_affinities": [
+        "bev_104_2",
+        "bev_104_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_104_4",
+      "restaurant_id": "rest_104",
+      "name": "Chilli Chicken Fried Rice Bowl",
+      "category": "main_bowl",
+      "dietary_type": "non_veg",
+      "dietary_tags": [
+        "halal"
+      ],
+      "allergens": [
+        "soy"
+      ],
+      "price_inr": 215,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "celebratory_happy"
+      ],
+      "sensory_tags": [
+        "spicy",
+        "smoky",
+        "savory",
+        "hot"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.88,
+      "heavy_index": 0.66,
+      "pairing_affinities": [
+        "bev_104_1",
+        "des_104_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_104_5",
+      "restaurant_id": "rest_104",
+      "name": "Sweet Corn Noodle Comfort Bowl",
+      "category": "noodle_soup",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [
+        "gluten",
+        "soy"
+      ],
+      "price_inr": 149,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "sluggish_heavy",
+        "light_comfort",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "warm",
+        "mild",
+        "soothing",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.82,
+      "heavy_index": 0.38,
+      "pairing_affinities": [
+        "bev_104_2",
+        "bev_104_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_104_1",
+      "restaurant_id": "rest_104",
+      "name": "Peach Iced Tea (300ml)",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 55,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "cooling",
+        "refreshing",
+        "stressed_angry",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "chilled",
+        "fruity",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_104_2",
+      "restaurant_id": "rest_104",
+      "name": "Ginger Lemon Honey Tea",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 49,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "light_comfort",
+        "soothing",
+        "digestive"
+      ],
+      "sensory_tags": [
+        "warm",
+        "gingery",
+        "citrus",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_104_3",
+      "restaurant_id": "rest_104",
+      "name": "Dark Choco Mousse Cup",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 75,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sweet_treat",
+        "celebratory_happy",
+        "heartbroken_low"
+      ],
+      "sensory_tags": [
+        "chilled",
+        "silky",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_105_1",
+      "restaurant_id": "rest_105",
+      "name": "Tadka Curd Rice Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 139,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "light_comfort",
+        "post_illness",
+        "tired_and_down",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "cool",
+        "creamy",
+        "mild",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.85,
+      "heavy_index": 0.3,
+      "pairing_affinities": [
+        "bev_105_1",
+        "bev_105_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_105_2",
+      "restaurant_id": "rest_105",
+      "name": "Ghee Pongal & Sambar Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 149,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "sluggish_heavy",
+        "comfort_classic",
+        "nostalgic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "soft",
+        "mild",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.86,
+      "heavy_index": 0.44,
+      "pairing_affinities": [
+        "bev_105_2",
+        "bev_105_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_105_3",
+      "restaurant_id": "rest_105",
+      "name": "Bisi Bele Bath Comfort Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "nuts"
+      ],
+      "price_inr": 169,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "comfort_classic",
+        "nostalgic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "spiced",
+        "hearty",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.84,
+      "heavy_index": 0.58,
+      "pairing_affinities": [
+        "bev_105_1",
+        "des_105_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_105_4",
+      "restaurant_id": "rest_105",
+      "name": "Mini Idli Podi Ghee Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 129,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "light_comfort",
+        "budget_friendly",
+        "tired_and_down"
+      ],
+      "sensory_tags": [
+        "warm",
+        "soft",
+        "mildly_spiced",
+        "light"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.82,
+      "heavy_index": 0.32,
+      "pairing_affinities": [
+        "bev_105_2",
+        "bev_105_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_105_5",
+      "restaurant_id": "rest_105",
+      "name": "Pepper Rasam Rice Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 135,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "post_illness",
+        "light_comfort",
+        "digestive"
+      ],
+      "sensory_tags": [
+        "warm",
+        "peppery",
+        "brothy",
+        "light"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.83,
+      "heavy_index": 0.28,
+      "pairing_affinities": [
+        "bev_105_1",
+        "bev_105_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_105_1",
+      "restaurant_id": "rest_105",
+      "name": "Fresh Lime Soda",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 45,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "digestive",
+        "sluggish_heavy",
+        "refreshing",
+        "fizzy_sweet_kick"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "citrus",
+        "chilled",
+        "light"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_105_2",
+      "restaurant_id": "rest_105",
+      "name": "Filter Coffee Flask (Mini)",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 49,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "caffeine",
+        "warm",
+        "nostalgic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "aromatic",
+        "creamy"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_105_3",
+      "restaurant_id": "rest_105",
+      "name": "Warm Rava Kesari Bowl",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten",
+        "nuts"
+      ],
+      "price_inr": 59,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sweet_treat",
+        "celebratory_happy",
+        "nostalgic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "sweet",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_106_1",
+      "restaurant_id": "rest_106",
+      "name": "Jain Moong Dal Khichdi Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 145,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "light_comfort",
+        "tired_and_down",
+        "comfort_classic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "soft",
+        "mild",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.84,
+      "heavy_index": 0.32,
+      "pairing_affinities": [
+        "bev_106_1",
+        "bev_106_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_106_2",
+      "restaurant_id": "rest_106",
+      "name": "Jain Shahi Paneer Rice Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain"
+      ],
+      "allergens": [
+        "dairy",
+        "nuts"
+      ],
+      "price_inr": 195,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "celebratory_happy",
+        "comfort_classic",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "warm",
+        "creamy",
+        "rich",
+        "mild"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.87,
+      "heavy_index": 0.68,
+      "pairing_affinities": [
+        "bev_106_1",
+        "des_106_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_106_3",
+      "restaurant_id": "rest_106",
+      "name": "Jain Paneer Tikka Kathi Roll",
+      "category": "roll_wrap",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 175,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "bored_restless"
+      ],
+      "sensory_tags": [
+        "spiced",
+        "crunchy",
+        "warm"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.83,
+      "heavy_index": 0.56,
+      "pairing_affinities": [
+        "bev_106_2",
+        "bev_106_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_106_4",
+      "restaurant_id": "rest_106",
+      "name": "Jain Veg Masala Pulao Bowl",
+      "category": "biryani_rice",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 159,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "comfort_classic",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "warm",
+        "aromatic",
+        "mildly_spiced"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.81,
+      "heavy_index": 0.48,
+      "pairing_affinities": [
+        "bev_106_1",
+        "bev_106_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_106_5",
+      "restaurant_id": "rest_106",
+      "name": "Kanda-Free Jain Poha Bowl",
+      "category": "comfort_plate",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain",
+        "vegan"
+      ],
+      "allergens": [
+        "peanuts"
+      ],
+      "price_inr": 119,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "light_comfort",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "warm",
+        "light",
+        "fluffy",
+        "citrus"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.78,
+      "heavy_index": 0.28,
+      "pairing_affinities": [
+        "bev_106_1",
+        "bev_106_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_106_1",
+      "restaurant_id": "rest_106",
+      "name": "Jain Jeera Mint Cooler",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "cooling",
+        "digestive",
+        "sluggish_heavy",
+        "refreshing"
+      ],
+      "sensory_tags": [
+        "chilled",
+        "citrus",
+        "light"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_106_2",
+      "restaurant_id": "rest_106",
+      "name": "Chilled Sprite Can (300ml)",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "fizzy_sweet_kick",
+        "refreshing",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "chilled",
+        "citrus"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_106_3",
+      "restaurant_id": "rest_106",
+      "name": "Warm Badam Kheer Cup",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain"
+      ],
+      "allergens": [
+        "dairy",
+        "nuts"
+      ],
+      "price_inr": 65,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sweet_treat",
+        "nostalgic",
+        "heartbroken_low"
+      ],
+      "sensory_tags": [
+        "warm",
+        "creamy",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_107_1",
+      "restaurant_id": "rest_107",
+      "name": "Teriyaki Crispy Tofu Rice Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [
+        "soy"
+      ],
+      "price_inr": 189,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "bored_restless",
+        "stressed_angry",
+        "cheer_up",
+        "comfort_classic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "savory",
+        "crispy",
+        "umami"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.84,
+      "heavy_index": 0.45,
+      "pairing_affinities": [
+        "bev_107_1",
+        "bev_107_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_107_2",
+      "restaurant_id": "rest_107",
+      "name": "Herb Quinoa & Roasted Chickpea Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 199,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "light_comfort",
+        "bored_restless"
+      ],
+      "sensory_tags": [
+        "warm",
+        "fresh",
+        "herby",
+        "light"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.35,
+      "pairing_affinities": [
+        "bev_107_2",
+        "bev_107_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_107_3",
+      "restaurant_id": "rest_107",
+      "name": "Vegan Rajma Brown Rice Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 159,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "comfort_classic",
+        "nostalgic",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "warm",
+        "hearty",
+        "mildly_spiced",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.85,
+      "heavy_index": 0.55,
+      "pairing_affinities": [
+        "bev_107_1",
+        "des_107_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_107_4",
+      "restaurant_id": "rest_107",
+      "name": "Thai Red Curry Veg Jasmine Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 209,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "bored_restless"
+      ],
+      "sensory_tags": [
+        "warm",
+        "spicy",
+        "creamy",
+        "aromatic"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.86,
+      "heavy_index": 0.52,
+      "pairing_affinities": [
+        "bev_107_2",
+        "bev_107_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_107_5",
+      "restaurant_id": "rest_107",
+      "name": "Lemon Coriander Millet Soup Bowl",
+      "category": "noodle_soup",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 139,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "post_illness",
+        "light_comfort"
+      ],
+      "sensory_tags": [
+        "warm",
+        "brothy",
+        "citrus",
+        "light"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.81,
+      "heavy_index": 0.24,
+      "pairing_affinities": [
+        "bev_107_2",
+        "bev_107_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_107_1",
+      "restaurant_id": "rest_107",
+      "name": "Sparkling Ginger Fizz",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 45,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "fizzy_sweet_kick",
+        "digestive",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "gingery",
+        "chilled"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_107_2",
+      "restaurant_id": "rest_107",
+      "name": "Fresh Mint Cucumber Cooler",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 45,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "cooling",
+        "light_comfort",
+        "refreshing"
+      ],
+      "sensory_tags": [
+        "cool",
+        "fresh",
+        "light"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_107_3",
+      "restaurant_id": "rest_107",
+      "name": "Vegan Dark Choco Chia Pudding",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 69,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sweet_treat",
+        "celebratory_happy",
+        "heartbroken_low"
+      ],
+      "sensory_tags": [
+        "chilled",
+        "sweet",
+        "silky"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_108_1",
+      "restaurant_id": "rest_108",
+      "name": "Masala Soya Chaap Roll",
+      "category": "roll_wrap",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [
+        "gluten",
+        "soy"
+      ],
+      "price_inr": 149,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "budget_friendly",
+        "tired_and_down"
+      ],
+      "sensory_tags": [
+        "spicy",
+        "smoky",
+        "chewy",
+        "warm"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.82,
+      "heavy_index": 0.6,
+      "pairing_affinities": [
+        "bev_108_1",
+        "bev_108_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_108_2",
+      "restaurant_id": "rest_108",
+      "name": "Cheesy Corn & Jalapeno Wrap",
+      "category": "roll_wrap",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 169,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "cheer_up",
+        "bored_restless"
+      ],
+      "sensory_tags": [
+        "warm",
+        "creamy",
+        "crunchy"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.84,
+      "heavy_index": 0.58,
+      "pairing_affinities": [
+        "bev_108_1",
+        "des_108_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_108_3",
+      "restaurant_id": "rest_108",
+      "name": "Chicken Tikka Kathi Roll",
+      "category": "roll_wrap",
+      "dietary_type": "non_veg",
+      "dietary_tags": [
+        "halal"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 199,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "celebratory_happy"
+      ],
+      "sensory_tags": [
+        "spicy",
+        "smoky",
+        "savory"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.89,
+      "heavy_index": 0.62,
+      "pairing_affinities": [
+        "bev_108_2",
+        "bev_108_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_108_4",
+      "restaurant_id": "rest_108",
+      "name": "Bhuna Egg Masala Roll",
+      "category": "roll_wrap",
+      "dietary_type": "egg",
+      "dietary_tags": [],
+      "allergens": [
+        "egg",
+        "gluten"
+      ],
+      "price_inr": 155,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "tired_and_down",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "spicy",
+        "warm",
+        "savory"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.82,
+      "heavy_index": 0.56,
+      "pairing_affinities": [
+        "bev_108_1",
+        "bev_108_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_108_1",
+      "restaurant_id": "rest_108",
+      "name": "Chilled Coca-Cola (300ml)",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "fizzy_sweet_kick",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "chilled",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_108_2",
+      "restaurant_id": "rest_108",
+      "name": "Kala Khatta Mint Soda",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 45,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "cooling",
+        "stressed_angry",
+        "bored_restless"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "tangy",
+        "chilled"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_108_3",
+      "restaurant_id": "rest_108",
+      "name": "Warm Choco Chunk Cookie",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 55,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sweet_treat",
+        "cheer_up",
+        "heartbroken_low"
+      ],
+      "sensory_tags": [
+        "warm",
+        "sweet",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_109_1",
+      "restaurant_id": "rest_109",
+      "name": "Paneer Makhani & Garlic Naan Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 219,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "celebratory_happy",
+        "comfort_classic",
+        "cheer_up",
+        "heartbroken_low"
+      ],
+      "sensory_tags": [
+        "warm",
+        "creamy",
+        "rich",
+        "buttery"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.91,
+      "heavy_index": 0.78,
+      "pairing_affinities": [
+        "des_109_3",
+        "bev_109_1",
+        "bev_109_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_109_2",
+      "restaurant_id": "rest_109",
+      "name": "Classic Butter Chicken & Pulao Bowl",
+      "category": "main_bowl",
+      "dietary_type": "non_veg",
+      "dietary_tags": [
+        "halal"
+      ],
+      "allergens": [
+        "dairy",
+        "nuts"
+      ],
+      "price_inr": 249,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "celebratory_happy",
+        "comfort_classic",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "warm",
+        "creamy",
+        "rich",
+        "savory"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.93,
+      "heavy_index": 0.78,
+      "pairing_affinities": [
+        "des_109_3",
+        "bev_109_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_109_3",
+      "restaurant_id": "rest_109",
+      "name": "Kadai Paneer & Jeera Rice Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 209,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "comfort_classic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "spicy",
+        "hearty"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.86,
+      "heavy_index": 0.68,
+      "pairing_affinities": [
+        "bev_109_2",
+        "bev_109_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_109_4",
+      "restaurant_id": "rest_109",
+      "name": "Creamy Dal Tadka Rice Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 159,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "comfort_classic",
+        "nostalgic",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "warm",
+        "soft",
+        "mild",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.84,
+      "heavy_index": 0.52,
+      "pairing_affinities": [
+        "bev_109_1",
+        "des_109_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_109_1",
+      "restaurant_id": "rest_109",
+      "name": "Classic Cold Coffee",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 75,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "celebratory_happy",
+        "caffeine",
+        "cheer_up",
+        "tired_and_down"
+      ],
+      "sensory_tags": [
+        "chilled",
+        "creamy",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_109_2",
+      "restaurant_id": "rest_109",
+      "name": "Spiced Buttermilk (Chaas)",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "cooling",
+        "digestive",
+        "stressed_angry"
+      ],
+      "sensory_tags": [
+        "cool",
+        "tangy",
+        "light"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_109_3",
+      "restaurant_id": "rest_109",
+      "name": "Warm Choco Lava Cake",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 89,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "celebratory_happy",
+        "sweet_treat",
+        "heartbroken_low",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "warm",
+        "molten",
+        "sweet",
+        "rich"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_110_1",
+      "restaurant_id": "rest_110",
+      "name": "Roasted Tomato Basil Soup & Croutons",
+      "category": "noodle_soup",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "price_inr": 149,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "light_comfort",
+        "tired_and_down",
+        "post_illness"
+      ],
+      "sensory_tags": [
+        "warm",
+        "velvety",
+        "tangy",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.84,
+      "heavy_index": 0.25,
+      "pairing_affinities": [
+        "bev_110_1",
+        "bev_110_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_110_2",
+      "restaurant_id": "rest_110",
+      "name": "Warm Veg Sweet Corn Soup Bowl",
+      "category": "noodle_soup",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 139,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "post_illness",
+        "light_comfort",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "warm",
+        "mild",
+        "soothing",
+        "brothy"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.82,
+      "heavy_index": 0.24,
+      "pairing_affinities": [
+        "bev_110_1",
+        "bev_110_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_110_3",
+      "restaurant_id": "rest_110",
+      "name": "Pepper Chicken Clear Broth Bowl",
+      "category": "noodle_soup",
+      "dietary_type": "non_veg",
+      "dietary_tags": [
+        "halal"
+      ],
+      "allergens": [],
+      "price_inr": 169,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "post_illness",
+        "light_comfort"
+      ],
+      "sensory_tags": [
+        "warm",
+        "brothy",
+        "peppery",
+        "light"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.85,
+      "heavy_index": 0.28,
+      "pairing_affinities": [
+        "bev_110_1",
+        "bev_110_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_110_4",
+      "restaurant_id": "rest_110",
+      "name": "Herbed Khichdi & Spinach Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 159,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "light_comfort",
+        "tired_and_down"
+      ],
+      "sensory_tags": [
+        "warm",
+        "soft",
+        "light",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.83,
+      "heavy_index": 0.34,
+      "pairing_affinities": [
+        "bev_110_1",
+        "bev_110_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_110_1",
+      "restaurant_id": "rest_110",
+      "name": "Tulsi Ginger Lemon Tea",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 45,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "post_illness",
+        "light_comfort",
+        "soothing"
+      ],
+      "sensory_tags": [
+        "warm",
+        "herbal",
+        "citrus",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_110_2",
+      "restaurant_id": "rest_110",
+      "name": "Fresh Sweet Lime Juice",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 55,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "refreshing",
+        "light_comfort",
+        "post_illness"
+      ],
+      "sensory_tags": [
+        "cool",
+        "citrus",
+        "light"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_110_3",
+      "restaurant_id": "rest_110",
+      "name": "Honey Oatmeal Cookie",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "price_inr": 45,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "light_comfort",
+        "sweet_treat"
+      ],
+      "sensory_tags": [
+        "soft",
+        "mildly_sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_111_1",
+      "restaurant_id": "rest_111",
+      "name": "Ghee Pav Bhaji Mash Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 149,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "cheer_up",
+        "comfort_classic",
+        "bored_restless",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "warm",
+        "buttery",
+        "tangy",
+        "spiced"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.89,
+      "heavy_index": 0.66,
+      "pairing_affinities": [
+        "bev_111_1",
+        "bev_111_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_111_2",
+      "restaurant_id": "rest_111",
+      "name": "Indori Poha & Sev Comfort Bowl",
+      "category": "comfort_plate",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [
+        "peanuts"
+      ],
+      "price_inr": 109,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "light_comfort",
+        "budget_friendly",
+        "tired_and_down"
+      ],
+      "sensory_tags": [
+        "warm",
+        "light",
+        "citrus",
+        "fluffy"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.28,
+      "pairing_affinities": [
+        "bev_111_2",
+        "bev_111_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_111_3",
+      "restaurant_id": "rest_111",
+      "name": "Tawa Veg Pulao Bowl",
+      "category": "biryani_rice",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 145,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "stressed_angry",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "warm",
+        "spiced",
+        "tangy"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.82,
+      "heavy_index": 0.52,
+      "pairing_affinities": [
+        "bev_111_1",
+        "bev_111_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_111_4",
+      "restaurant_id": "rest_111",
+      "name": "Mumbai Masala Toastie Wrap",
+      "category": "roll_wrap",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 129,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "bored_restless",
+        "crunchy",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "crispy",
+        "spiced",
+        "warm"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.83,
+      "heavy_index": 0.5,
+      "pairing_affinities": [
+        "bev_111_1",
+        "des_111_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_111_1",
+      "restaurant_id": "rest_111",
+      "name": "Chilled Thums Up (300ml)",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "fizzy_sweet_kick",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "chilled",
+        "bold"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_111_2",
+      "restaurant_id": "rest_111",
+      "name": "Adrak Cutting Chai Flask",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "nostalgic",
+        "caffeine"
+      ],
+      "sensory_tags": [
+        "warm",
+        "gingery",
+        "comforting"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_111_3",
+      "restaurant_id": "rest_111",
+      "name": "Warm Caramel Custard Cup",
+      "category": "dessert",
+      "dietary_type": "egg",
+      "dietary_tags": [],
+      "allergens": [
+        "dairy",
+        "egg"
+      ],
+      "price_inr": 59,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sweet_treat",
+        "heartbroken_low"
+      ],
+      "sensory_tags": [
+        "chilled",
+        "silky",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_112_1",
+      "restaurant_id": "rest_112",
+      "name": "Aloo Tikki Chole Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 139,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "bored_restless",
+        "stressed_angry",
+        "budget_friendly",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "crispy",
+        "tangy",
+        "spiced",
+        "warm"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.86,
+      "heavy_index": 0.58,
+      "pairing_affinities": [
+        "bev_112_1",
+        "bev_112_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_112_2",
+      "restaurant_id": "rest_112",
+      "name": "Dilli Rajma Rice Mini Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 135,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "comfort_classic",
+        "nostalgic",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "warm",
+        "soft",
+        "mildly_spiced"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.84,
+      "heavy_index": 0.52,
+      "pairing_affinities": [
+        "bev_112_1",
+        "des_112_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_112_3",
+      "restaurant_id": "rest_112",
+      "name": "Paneer Bhurji & Tawa Paratha Plate",
+      "category": "comfort_plate",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 179,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "comfort_classic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "spiced",
+        "hearty"
+      ],
+      "effort_to_eat": "standard",
+      "dopamine_score": 0.83,
+      "heavy_index": 0.68,
+      "pairing_affinities": [
+        "bev_112_2",
+        "bev_112_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_112_4",
+      "restaurant_id": "rest_112",
+      "name": "Jain Dahi Papdi Crunch Bowl",
+      "category": "comfort_plate",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 129,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "bored_restless",
+        "crunchy",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "cool",
+        "crunchy",
+        "tangy",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.81,
+      "heavy_index": 0.38,
+      "pairing_affinities": [
+        "bev_112_1",
+        "bev_112_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_112_1",
+      "restaurant_id": "rest_112",
+      "name": "Nimbu Shikanji Fizz",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "refreshing",
+        "fizzy_sweet_kick",
+        "digestive"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "citrus",
+        "spiced"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_112_2",
+      "restaurant_id": "rest_112",
+      "name": "Sweet Lassi Cup",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 55,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "cooling",
+        "comfort_classic",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "chilled",
+        "creamy",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_112_3",
+      "restaurant_id": "rest_112",
+      "name": "Moong Dal Halwa Cup",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "nuts"
+      ],
+      "price_inr": 65,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "heartbroken_low",
+        "sweet_treat",
+        "nostalgic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "rich",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_113_1",
+      "restaurant_id": "rest_113",
+      "name": "Dan Dan Chilli Peanut Noodles",
+      "category": "noodle_soup",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [
+        "gluten",
+        "peanuts",
+        "soy"
+      ],
+      "price_inr": 189,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "sensory_release"
+      ],
+      "sensory_tags": [
+        "spicy",
+        "nutty",
+        "savory",
+        "hot"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.87,
+      "heavy_index": 0.62,
+      "pairing_affinities": [
+        "bev_113_1",
+        "bev_113_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_113_2",
+      "restaurant_id": "rest_113",
+      "name": "Veg Manchurian & Burnt Garlic Fried Rice",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [
+        "gluten",
+        "soy"
+      ],
+      "price_inr": 195,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "celebratory_happy",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "crispy",
+        "garlicky",
+        "saucy",
+        "warm"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.88,
+      "heavy_index": 0.68,
+      "pairing_affinities": [
+        "bev_113_1",
+        "bev_113_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_113_3",
+      "restaurant_id": "rest_113",
+      "name": "Spicy Kung Pao Chicken Bowl",
+      "category": "main_bowl",
+      "dietary_type": "non_veg",
+      "dietary_tags": [
+        "halal"
+      ],
+      "allergens": [
+        "peanuts",
+        "soy"
+      ],
+      "price_inr": 229,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "celebratory_happy"
+      ],
+      "sensory_tags": [
+        "spicy",
+        "crunchy",
+        "savory",
+        "hot"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.89,
+      "heavy_index": 0.65,
+      "pairing_affinities": [
+        "bev_113_1",
+        "bev_113_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_113_4",
+      "restaurant_id": "rest_113",
+      "name": "Clear Bok Choy & Tofu Soup",
+      "category": "noodle_soup",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [
+        "soy"
+      ],
+      "price_inr": 149,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "light_comfort"
+      ],
+      "sensory_tags": [
+        "warm",
+        "brothy",
+        "light",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.79,
+      "heavy_index": 0.22,
+      "pairing_affinities": [
+        "bev_113_2",
+        "bev_113_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_113_1",
+      "restaurant_id": "rest_113",
+      "name": "Iced Lemon Mint Tea",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 49,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "cooling",
+        "stressed_angry",
+        "refreshing"
+      ],
+      "sensory_tags": [
+        "chilled",
+        "citrus",
+        "minty"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_113_2",
+      "restaurant_id": "rest_113",
+      "name": "Chilled Ginger Ale (300ml)",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 49,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "fizzy_sweet_kick",
+        "digestive",
+        "refreshing"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "gingery",
+        "chilled"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_113_3",
+      "restaurant_id": "rest_113",
+      "name": "Fried Banana & Honey Bowl",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "price_inr": 75,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sweet_treat",
+        "celebratory_happy"
+      ],
+      "sensory_tags": [
+        "warm",
+        "crispy",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_114_1",
+      "restaurant_id": "rest_114",
+      "name": "Mac & Cheese Truffle Comfort Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 219,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "heartbroken_low",
+        "tired_and_down",
+        "cheer_up",
+        "celebratory_happy"
+      ],
+      "sensory_tags": [
+        "warm",
+        "creamy",
+        "cheesy",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.92,
+      "heavy_index": 0.75,
+      "pairing_affinities": [
+        "des_114_3",
+        "bev_114_1",
+        "bev_114_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_114_2",
+      "restaurant_id": "rest_114",
+      "name": "Pesto Paneer Panini Wrap",
+      "category": "roll_wrap",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten",
+        "nuts"
+      ],
+      "price_inr": 189,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "bored_restless",
+        "cheer_up",
+        "celebratory_happy"
+      ],
+      "sensory_tags": [
+        "warm",
+        "crispy",
+        "herby"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.84,
+      "heavy_index": 0.56,
+      "pairing_affinities": [
+        "bev_114_1",
+        "bev_114_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_114_3",
+      "restaurant_id": "rest_114",
+      "name": "Roasted Mushroom Risotto Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 229,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "comfort_classic",
+        "heartbroken_low"
+      ],
+      "sensory_tags": [
+        "warm",
+        "creamy",
+        "earthy",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.87,
+      "heavy_index": 0.64,
+      "pairing_affinities": [
+        "bev_114_2",
+        "des_114_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_114_4",
+      "restaurant_id": "rest_114",
+      "name": "Peri-Peri Crispy Chicken Wrap",
+      "category": "roll_wrap",
+      "dietary_type": "non_veg",
+      "dietary_tags": [
+        "halal"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy"
+      ],
+      "price_inr": 209,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "celebratory_happy"
+      ],
+      "sensory_tags": [
+        "spicy",
+        "crispy",
+        "warm"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.87,
+      "heavy_index": 0.6,
+      "pairing_affinities": [
+        "bev_114_1",
+        "bev_114_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_114_1",
+      "restaurant_id": "rest_114",
+      "name": "Belgian Hot Chocolate",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 79,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "heartbroken_low",
+        "tired_and_down",
+        "sweet_treat",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "warm",
+        "creamy",
+        "rich",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_114_2",
+      "restaurant_id": "rest_114",
+      "name": "Iced Americano",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 59,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "caffeine",
+        "light_comfort",
+        "tired_and_down"
+      ],
+      "sensory_tags": [
+        "chilled",
+        "bold",
+        "crisp"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_114_3",
+      "restaurant_id": "rest_114",
+      "name": "Gooey Fudge Brownie",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 75,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "heartbroken_low",
+        "sweet_treat",
+        "celebratory_happy",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "warm",
+        "fudgy",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_115_1",
+      "restaurant_id": "rest_115",
+      "name": "Lucknowi Chicken Galouti Roll",
+      "category": "roll_wrap",
+      "dietary_type": "non_veg",
+      "dietary_tags": [
+        "halal"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 209,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "celebratory_happy",
+        "tired_and_down",
+        "comfort_classic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "soft",
+        "aromatic",
+        "rich"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.9,
+      "heavy_index": 0.64,
+      "pairing_affinities": [
+        "bev_115_1",
+        "bev_115_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_115_2",
+      "restaurant_id": "rest_115",
+      "name": "Subz Lucknowi Biryani Bowl",
+      "category": "biryani_rice",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "nuts"
+      ],
+      "price_inr": 185,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "comfort_classic",
+        "celebratory_happy"
+      ],
+      "sensory_tags": [
+        "warm",
+        "aromatic",
+        "mildly_spiced",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.85,
+      "heavy_index": 0.64,
+      "pairing_affinities": [
+        "bev_115_1",
+        "des_115_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_115_3",
+      "restaurant_id": "rest_115",
+      "name": "Mutton Keema Rice Bowl",
+      "category": "biryani_rice",
+      "dietary_type": "non_veg",
+      "dietary_tags": [
+        "halal"
+      ],
+      "allergens": [],
+      "price_inr": 259,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "celebratory_happy",
+        "stressed_angry",
+        "bold_spicy"
+      ],
+      "sensory_tags": [
+        "warm",
+        "spiced",
+        "hearty",
+        "rich"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.91,
+      "heavy_index": 0.76,
+      "pairing_affinities": [
+        "bev_115_2",
+        "bev_115_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_115_4",
+      "restaurant_id": "rest_115",
+      "name": "Paneer Malai Tikka Roll",
+      "category": "roll_wrap",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 189,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "cheer_up",
+        "comfort_classic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "creamy",
+        "mild",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.85,
+      "heavy_index": 0.6,
+      "pairing_affinities": [
+        "bev_115_1",
+        "des_115_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_115_1",
+      "restaurant_id": "rest_115",
+      "name": "Chilled Coke Can (300ml)",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "fizzy_sweet_kick",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "chilled",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_115_2",
+      "restaurant_id": "rest_115",
+      "name": "Pudina Raita Cooler",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 45,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "cooling",
+        "digestive",
+        "stressed_angry"
+      ],
+      "sensory_tags": [
+        "cool",
+        "minty",
+        "light"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_115_3",
+      "restaurant_id": "rest_115",
+      "name": "Shahi Tukda Bite",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten",
+        "nuts"
+      ],
+      "price_inr": 69,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "celebratory_happy",
+        "sweet_treat",
+        "heartbroken_low"
+      ],
+      "sensory_tags": [
+        "sweet",
+        "rich",
+        "aromatic"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_116_1",
+      "restaurant_id": "rest_116",
+      "name": "Classic Tadka Dal Khichdi",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 139,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "sluggish_heavy",
+        "comfort_classic",
+        "nostalgic",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "warm",
+        "soft",
+        "mild",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.86,
+      "heavy_index": 0.36,
+      "pairing_affinities": [
+        "bev_116_1",
+        "bev_116_2",
+        "des_116_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_116_2",
+      "restaurant_id": "rest_116",
+      "name": "Achari Masala Khichdi Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 155,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "tired_and_down",
+        "comfort_classic",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "warm",
+        "tangy",
+        "spiced",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.84,
+      "heavy_index": 0.44,
+      "pairing_affinities": [
+        "bev_116_2",
+        "bev_116_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_116_3",
+      "restaurant_id": "rest_116",
+      "name": "Palak Lehsuni Khichdi Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 159,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sluggish_heavy",
+        "light_comfort",
+        "tired_and_down"
+      ],
+      "sensory_tags": [
+        "warm",
+        "earthy",
+        "soft",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.83,
+      "heavy_index": 0.38,
+      "pairing_affinities": [
+        "bev_116_2",
+        "bev_116_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_116_4",
+      "restaurant_id": "rest_116",
+      "name": "Jain Panchratna Khichdi Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 149,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "sluggish_heavy",
+        "light_comfort",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "warm",
+        "soft",
+        "mild",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.84,
+      "heavy_index": 0.34,
+      "pairing_affinities": [
+        "bev_116_1",
+        "bev_116_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_116_1",
+      "restaurant_id": "rest_116",
+      "name": "Chilled Limca Can (300ml)",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "fizzy_sweet_kick",
+        "refreshing",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "citrus",
+        "chilled"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_116_2",
+      "restaurant_id": "rest_116",
+      "name": "Roasted Jeera Chaas",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 39,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "digestive",
+        "cooling",
+        "sluggish_heavy"
+      ],
+      "sensory_tags": [
+        "cool",
+        "light",
+        "tangy"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_116_3",
+      "restaurant_id": "rest_116",
+      "name": "Warm Gulab Jamun (1 pc)",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 35,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sweet_treat",
+        "nostalgic",
+        "heartbroken_low",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "warm",
+        "sweet",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_117_1",
+      "restaurant_id": "rest_117",
+      "name": "Vegan Dal Tadka & Jeera Rice Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 149,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "comfort_classic",
+        "nostalgic",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "warm",
+        "soft",
+        "mild",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.84,
+      "heavy_index": 0.45,
+      "pairing_affinities": [
+        "bev_117_1",
+        "bev_117_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_117_2",
+      "restaurant_id": "rest_117",
+      "name": "Smoky Vegan BBQ Jackfruit Roll",
+      "category": "roll_wrap",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "price_inr": 175,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "bored_restless"
+      ],
+      "sensory_tags": [
+        "smoky",
+        "spiced",
+        "crunchy",
+        "warm"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.83,
+      "heavy_index": 0.52,
+      "pairing_affinities": [
+        "bev_117_2",
+        "bev_117_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_117_3",
+      "restaurant_id": "rest_117",
+      "name": "Coconut Lentil Curry Rice Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 169,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "sluggish_heavy",
+        "light_comfort"
+      ],
+      "sensory_tags": [
+        "warm",
+        "creamy",
+        "mild",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.85,
+      "heavy_index": 0.42,
+      "pairing_affinities": [
+        "bev_117_1",
+        "des_117_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_117_4",
+      "restaurant_id": "rest_117",
+      "name": "Spicy Schezwan Millet Noodles",
+      "category": "noodle_soup",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [
+        "soy"
+      ],
+      "price_inr": 165,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bold_spicy",
+        "sensory_release"
+      ],
+      "sensory_tags": [
+        "spicy",
+        "garlicky",
+        "hot"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.84,
+      "heavy_index": 0.48,
+      "pairing_affinities": [
+        "bev_117_2",
+        "bev_117_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_117_1",
+      "restaurant_id": "rest_117",
+      "name": "Kokum Jeera Fizz",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 45,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "fizzy_sweet_kick",
+        "cooling",
+        "digestive"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "tangy",
+        "chilled"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_117_2",
+      "restaurant_id": "rest_117",
+      "name": "Lemon Ginger Green Tea",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 45,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "light_comfort",
+        "sluggish_heavy",
+        "soothing"
+      ],
+      "sensory_tags": [
+        "warm",
+        "citrus",
+        "light"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_117_3",
+      "restaurant_id": "rest_117",
+      "name": "Coconut Jaggery Ladoo (2 pcs)",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 49,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sweet_treat",
+        "nostalgic",
+        "heartbroken_low"
+      ],
+      "sensory_tags": [
+        "sweet",
+        "soft",
+        "warm"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_118_1",
+      "restaurant_id": "rest_118",
+      "name": "Tandoori Paneer Tikka Rice Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 199,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "celebratory_happy",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "smoky",
+        "spiced",
+        "warm",
+        "hearty"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.87,
+      "heavy_index": 0.64,
+      "pairing_affinities": [
+        "bev_118_1",
+        "bev_118_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_118_2",
+      "restaurant_id": "rest_118",
+      "name": "Tandoori Chicken Tikka Rice Bowl",
+      "category": "main_bowl",
+      "dietary_type": "non_veg",
+      "dietary_tags": [
+        "halal"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 229,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "celebratory_happy",
+        "bold_spicy"
+      ],
+      "sensory_tags": [
+        "smoky",
+        "spiced",
+        "warm",
+        "hearty"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.9,
+      "heavy_index": 0.66,
+      "pairing_affinities": [
+        "bev_118_2",
+        "bev_118_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_118_3",
+      "restaurant_id": "rest_118",
+      "name": "Amritsari Chole & Kulcha Plate",
+      "category": "comfort_plate",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 189,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "celebratory_happy",
+        "comfort_classic",
+        "nostalgic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "tangy",
+        "crispy",
+        "hearty"
+      ],
+      "effort_to_eat": "standard",
+      "dopamine_score": 0.86,
+      "heavy_index": 0.75,
+      "pairing_affinities": [
+        "bev_118_1",
+        "des_118_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_118_4",
+      "restaurant_id": "rest_118",
+      "name": "Egg Bhurji Masala Bowl",
+      "category": "main_bowl",
+      "dietary_type": "egg",
+      "dietary_tags": [],
+      "allergens": [
+        "egg",
+        "dairy"
+      ],
+      "price_inr": 169,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "stressed_angry",
+        "comfort_classic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "spiced",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.82,
+      "heavy_index": 0.55,
+      "pairing_affinities": [
+        "bev_118_1",
+        "bev_118_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_118_1",
+      "restaurant_id": "rest_118",
+      "name": "Chilled Pepsi Can (300ml)",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "fizzy_sweet_kick",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "chilled",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_118_2",
+      "restaurant_id": "rest_118",
+      "name": "Aam Panna Mint Cooler",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 49,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "cooling",
+        "stressed_angry",
+        "nostalgic"
+      ],
+      "sensory_tags": [
+        "chilled",
+        "tangy",
+        "minty"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_118_3",
+      "restaurant_id": "rest_118",
+      "name": "Warm Phirni Earthen Cup",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "nuts"
+      ],
+      "price_inr": 65,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "sweet_treat",
+        "celebratory_happy",
+        "nostalgic"
+      ],
+      "sensory_tags": [
+        "chilled",
+        "creamy",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_119_1",
+      "restaurant_id": "rest_119",
+      "name": "Late-Night Maggi Masala & Cheese Bowl",
+      "category": "noodle_soup",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 129,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "nostalgic",
+        "cheer_up",
+        "budget_friendly",
+        "bored_restless"
+      ],
+      "sensory_tags": [
+        "warm",
+        "cheesy",
+        "comforting",
+        "soft"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.9,
+      "heavy_index": 0.54,
+      "pairing_affinities": [
+        "bev_119_1",
+        "bev_119_2",
+        "des_119_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_119_2",
+      "restaurant_id": "rest_119",
+      "name": "Loaded Peri-Peri Fries & Cheese Bowl",
+      "category": "comfort_plate",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 149,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "stressed_angry",
+        "bored_restless",
+        "celebratory_happy",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "crispy",
+        "spicy",
+        "cheesy",
+        "crunchy"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.88,
+      "heavy_index": 0.62,
+      "pairing_affinities": [
+        "bev_119_1",
+        "bev_119_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_119_3",
+      "restaurant_id": "rest_119",
+      "name": "Chicken Keema Maggi Bowl",
+      "category": "noodle_soup",
+      "dietary_type": "non_veg",
+      "dietary_tags": [
+        "halal"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "price_inr": 169,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "stressed_angry",
+        "nostalgic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "spiced",
+        "savory"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.89,
+      "heavy_index": 0.6,
+      "pairing_affinities": [
+        "bev_119_1",
+        "bev_119_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_119_4",
+      "restaurant_id": "rest_119",
+      "name": "Classic Homestyle Rajma Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan"
+      ],
+      "allergens": [],
+      "price_inr": 155,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "tired_and_down",
+        "comfort_classic",
+        "nostalgic",
+        "budget_friendly"
+      ],
+      "sensory_tags": [
+        "warm",
+        "hearty",
+        "soft",
+        "mildly_spiced"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.87,
+      "heavy_index": 0.6,
+      "pairing_affinities": [
+        "bev_119_1",
+        "des_119_3"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_119_1",
+      "restaurant_id": "rest_119",
+      "name": "Chilled Coca-Cola (300ml)",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "fizzy_sweet_kick",
+        "cheer_up",
+        "tired_and_down"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "chilled",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_119_2",
+      "restaurant_id": "rest_119",
+      "name": "Double Shot Iced Coffee",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 69,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "caffeine",
+        "tired_and_down",
+        "cheer_up"
+      ],
+      "sensory_tags": [
+        "chilled",
+        "bold",
+        "creamy"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "des_119_3",
+      "restaurant_id": "rest_119",
+      "name": "Warm Chocolate Chip Brownie",
+      "category": "dessert",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "price_inr": 69,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "heartbroken_low",
+        "sweet_treat",
+        "celebratory_happy"
+      ],
+      "sensory_tags": [
+        "warm",
+        "fudgy",
+        "sweet"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_991_1",
+      "restaurant_id": "rest_991",
+      "name": "Slow-Cooked Handi Paneer Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 219,
+      "prep_time_mins": 34,
+      "mood_tags": [
+        "comfort_classic",
+        "celebratory_happy"
+      ],
+      "sensory_tags": [
+        "warm",
+        "rich",
+        "creamy"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.9,
+      "heavy_index": 0.72,
+      "pairing_affinities": [
+        "bev_991_1",
+        "bev_991_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_991_1",
+      "restaurant_id": "rest_991",
+      "name": "Slow House Masala Chaas",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 49,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "cooling"
+      ],
+      "sensory_tags": [
+        "cool",
+        "tangy"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_991_2",
+      "restaurant_id": "rest_991",
+      "name": "Slow House Soda",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "fizzy_sweet_kick"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "chilled"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "dish_992_1",
+      "restaurant_id": "rest_992",
+      "name": "Closed Heritage Rajma Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 149,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "comfort_classic",
+        "tired_and_down"
+      ],
+      "sensory_tags": [
+        "warm",
+        "hearty"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.95,
+      "heavy_index": 0.6,
+      "pairing_affinities": [
+        "bev_992_1",
+        "bev_992_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "bev_992_1",
+      "restaurant_id": "rest_992",
+      "name": "Closed Dhaba Coke",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "vegan",
+        "jain"
+      ],
+      "allergens": [],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "fizzy_sweet_kick"
+      ],
+      "sensory_tags": [
+        "fizzy",
+        "chilled"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    },
+    {
+      "id": "bev_992_2",
+      "restaurant_id": "rest_992",
+      "name": "Closed Dhaba Chaas",
+      "category": "beverage",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 40,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "cooling"
+      ],
+      "sensory_tags": [
+        "cool",
+        "tangy"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.8,
+      "heavy_index": 0.55,
+      "pairing_affinities": [],
+      "is_available": true
+    }
+  ]
+}

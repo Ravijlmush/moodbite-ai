@@ -1,0 +1,34 @@
+"""Health and catalog inspection endpoints."""
+
+from __future__ import annotations
+
+from fastapi import APIRouter, Depends
+
+from app.api.deps import AppContainer, get_container
+from app.schemas.api import CatalogStatsResponse, HealthResponse
+
+router = APIRouter(tags=["health"])
+
+
+@router.get("/health", response_model=HealthResponse)
+async def health_check(container: AppContainer = Depends(get_container)) -> HealthResponse:
+    stats = container.catalog.get_stats()
+    quota = await container.rate_limiter.peek()
+    return HealthResponse(
+        status="ok",
+        app=container.settings.app_name,
+        version=container.settings.app_version,
+        llm_provider=container.settings.resolved_llm_provider(),
+        catalog_restaurants=stats.total_restaurants,
+        catalog_items=stats.total_items,
+        storage_backend=container.session_store.backend_name,
+        catalog_backend=container.catalog.backend_name,
+        daily_request_limit=quota.limit,
+        daily_requests_used=quota.used,
+        daily_requests_remaining=quota.remaining,
+    )
+
+
+@router.get("/api/v1/catalog/stats", response_model=CatalogStatsResponse)
+async def catalog_stats(container: AppContainer = Depends(get_container)) -> CatalogStatsResponse:
+    return container.catalog.get_stats()
