@@ -43,7 +43,7 @@ function createWelcomeMessage(): ChatMessage {
     id: "welcome_msg",
     role: "assistant",
     content:
-      "Hey! Rough day, chill evening, or just need fast food so you don't have to think? Tell me the vibe.",
+      "Hey—how's the day going? Tell me the vibe and I'll sort out food for you.",
     action: "ask_followup",
     quick_reply_pills: INITIAL_PILLS,
     isRefinementList: false,

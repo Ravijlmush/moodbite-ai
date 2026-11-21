@@ -231,37 +231,45 @@ def extract_offline_turn(current: UserContext, message: str) -> LLMExtractionOut
             quick_reply_pills=["Under ₹250", "Make it spicier", "Something lighter", "Swap drink"],
         )
 
-    # Otherwise emit a concise <45 word check-in or micro-probe + 4 crisp pills (<=4 words each)
+    # Otherwise emit a natural, friend-like <45 word nudge + 4 crisp pills (<=4 words each)
     ctx.routing.state_confidence = round(confidence, 2)
     ctx.routing.next_action = "ask_followup"
 
     if ctx.turn_count == 1 and not mood_detected and not craving_detected:
-        question = (
-            "Hey! How's the day treating you—need pure comfort food, "
-            "a spicy energy boost, or just something fast so you don't have to think?"
-        )
+        if cleaned in ("hi", "hello", "hey", "hii", "yo", "sup"):
+            question = "Hey! Long day or just hungry? Tell me the vibe and I'll sort out food."
+        elif "hungry" in text or "starving" in text:
+            question = "Say less—what kind of hungry are we talking? Warm comfort, spicy kick, or something light?"
+        else:
+            question = "No stress, I'll decide for you—just tell me the vibe right now."
         pills = list(STARTER_QUICK_REPLY_PILLS)
     elif ctx.user_state.primary_mood == "stressed_angry":
         question = (
-            "Rough stretch—let's fix that. Do you want fiery, crunchy comfort "
-            "to burn off the stress, or something warm and soothing?"
+            "Ugh, one of those days. Want fiery, crunchy food to shake off the stress, "
+            "or something warm and grounding?"
         )
         pills = ["Spicy & crunchy", "Warm comfort bowl", "Light & cooling", "Veg only, fast"]
     elif ctx.user_state.primary_mood == "tired_and_down":
         question = (
-            "Long day calls for zero effort. Warm nostalgic comfort bowl, "
-            "or something cheesy and sweet to lift your mood?"
+            "Long day—zero-effort food only. Craving a warm nostalgic bowl "
+            "or something cheesy and sweet?"
         )
         pills = ["Warm comfort bowl", "Cheesy & indulgent", "Light & simple", "Under ₹250"]
     elif ctx.user_state.primary_mood == "bored_restless":
         question = (
-            "Got it—time to wake up your taste buds. Spicy street-style crunch, "
-            "or a fun fusion rice bowl?"
+            "Fair—let's keep it interesting. Spicy street-style crunch "
+            "or a punchy fusion bowl?"
         )
         pills = ["Spicy street crunch", "Fusion rice bowl", "Sweet treat combo", "Under ₹250"]
+    elif ctx.turn_count >= 2:
+        question = (
+            "Almost there—do you want something warm and comforting, spicy, "
+            "or should I just surprise you?"
+        )
+        pills = ["Warm homestyle", "Bold & spicy", "Light & gentle", "Just surprise me"]
     else:
         question = (
-            "Tell me the vibe—warm homestyle comfort, bold and spicy, "
+            "Got it—leaning toward warm comfort, something spicy, "
             "or light and easy on the stomach?"
         )
         pills = ["Warm homestyle", "Bold & spicy", "Light & gentle", "Fast under ₹250"]

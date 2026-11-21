@@ -157,13 +157,21 @@ class MoodBiteOrchestrator:
 
             if not recommendations:
                 intro = (
-                    "Nothing matched every strict filter at once nearby—try clearing a budget "
-                    "or dietary chip below to see fast combos:"
+                    "Hmm, nothing nearby ticks every single filter right now—try loosening the "
+                    "budget or dietary chip below and I'll pull up fresh picks."
                 )
+            elif (
+                llm_mode in ("openrouter", "openai", "gemini", "ollama")
+                and not used_fallback
+                and reply_text.strip()
+            ):
+                # Preserve the live LLM's natural, conversational handoff instead of a canned template
+                intro = reply_text.strip()
             else:
                 intro = build_recommendation_intro(
                     extracted_ctx,
                     len(recommendations),
+                    user_message=request.message,
                     used_fallback=used_fallback,
                 )
 

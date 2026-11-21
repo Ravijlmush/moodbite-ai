@@ -29,35 +29,35 @@ def apply_refinement_chip(
         updated.food_preferences.craving_profiles = list(
             dict.fromkeys([*updated.food_preferences.craving_profiles, "budget_friendly"])
         )
-        msg = f"Filtered to fast combos under ₹{cap} — keeping your mood and dietary settings intact:"
+        msg = f"Easy on the wallet—kept everything under ₹{cap}:"
     elif "spicier" in c or "spicy" in c:
         updated.food_preferences.spice_tolerance = "high"
         updated.food_preferences.craving_profiles = list(
             dict.fromkeys([*updated.food_preferences.craving_profiles, "bold_spicy", "sensory_release"])
         )
-        msg = "Turned up the heat — here are bolder, spicier combos arriving fast:"
+        msg = "Dialed up the spice—here are bolder picks arriving fast:"
     elif "lighter" in c or "light" in c:
         updated.food_preferences.spice_tolerance = "mild"
         updated.food_preferences.portion_size = "light_snack"
         updated.food_preferences.craving_profiles = ["light_comfort", "digestive", "cooling"]
-        msg = "Switched to lighter, easy-on-the-stomach combos near you:"
+        msg = "Kept it light and easy on the stomach:"
     elif "swap drink" in c or "swap booster" in c or "change drink" in c:
         new_swap_step += 1
-        msg = "Swapped the drink & dessert pairings from the same kitchens — take a look:"
+        msg = "Swapped out the drinks from the same kitchens—better?"
     elif "sweet" in c or "dessert" in c:
         updated.food_preferences.craving_profiles = list(
             dict.fromkeys([*updated.food_preferences.craving_profiles, "sweet_treat", "cheer_up"])
         )
-        msg = "Added sweet mood-lifter pairings to warm up your order:"
+        msg = "Added sweet pairings to round it out:"
     elif "veg only" in c or c == "veg":
         updated.hard_constraints.dietary_type = "veg"
-        msg = "Locked filter to 100% pure veg combos arriving fast:"
+        msg = "Locked to pure veg combos arriving fast:"
     elif eta_match or "faster" in c:
         target_eta = int(eta_match.group(1)) if eta_match else 22
         updated.hard_constraints.max_eta_mins = max(15, min(target_eta, 30))
-        msg = f"Prioritized the fastest kitchens under {updated.hard_constraints.max_eta_mins} mins:"
+        msg = f"Pulled the quickest kitchens under {updated.hard_constraints.max_eta_mins} mins:"
     else:
-        msg = f"Refined your combo list for '{chip.strip()}':"
+        msg = f"Tweaked the list for '{chip.strip()}':"
 
     updated.routing.next_action = "recommend_combos"
     updated.routing.state_confidence = max(updated.routing.state_confidence, 0.90)
