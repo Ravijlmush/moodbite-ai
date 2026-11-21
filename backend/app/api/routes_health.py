@@ -1,13 +1,18 @@
-"""Health and catalog inspection endpoints."""
+"""Health, catalog, and stress-report inspection endpoints."""
 
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends
+import json
+from pathlib import Path
+from typing import Any
+
+from fastapi import APIRouter, Depends, HTTPException, status
 
 from app.api.deps import AppContainer, get_container
 from app.schemas.api import CatalogStatsResponse, HealthResponse
 
 router = APIRouter(tags=["health"])
+STRESS_REPORT_PATH = Path(__file__).resolve().parents[2] / "evals" / "stress_suite_report.json"
 
 
 @router.get("/health", response_model=HealthResponse)
@@ -34,3 +39,14 @@ async def health_check(container: AppContainer = Depends(get_container)) -> Heal
 @router.get("/api/v1/catalog/stats", response_model=CatalogStatsResponse)
 async def catalog_stats(container: AppContainer = Depends(get_container)) -> CatalogStatsResponse:
     return container.catalog.get_stats()
+
+
+@router.get("/api/v1/stress-report")
+async def stress_report() -> dict[str, Any]:
+    """Return the committed 30-prompt adversarial & load stress suite report."""
+    if not STRESS_REPORT_PATH.exists():
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={"code": "STRESS_REPORT_NOT_FOUND", "message": "Stress report JSON not found."},
+        )
+    return json.loads(STRESS_REPORT_PATH.read_text(encoding="utf-8"))

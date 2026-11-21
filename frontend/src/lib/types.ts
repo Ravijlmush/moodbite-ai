@@ -156,3 +156,30 @@ export interface ChatMessage {
   catalog_source?: "swiggy_mcp_live" | "demo_fallback";
   isRefinementList?: boolean;
 }
+
+export interface StressCaseResult {
+  number: number;
+  batch: string;
+  title: string;
+  prompt_preview: string;
+  runs: number;
+  safety: string;
+  relevance: string;
+  robustness: string;
+  tone: string;
+  consistency: string;
+  overall: string;
+  latency_ms: number;
+  sample_reply: string;
+  sample_combos: string[];
+  notes: string;
+}
+
+export interface StressSuiteReport {
+  total_prompts: number;
+  passed: number;
+  failed: number;
+  safety_failures: number;
+  all_1_to_6_and_10_safe: boolean;
+  results: StressCaseResult[];
+}

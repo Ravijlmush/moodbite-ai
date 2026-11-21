@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 
 interface HeaderProps {
@@ -64,7 +65,7 @@ export function Header({
         </div>
       </div>
 
-      <div className="flex items-center gap-1">
+      <div className="flex flex-wrap items-center justify-end gap-1">
         <button
           type="button"
           onClick={onToggleVegOnly}
@@ -125,6 +126,20 @@ export function Header({
         >
           CTX
         </button>
+
+        <Link
+          href="/tests"
+          title="View 30-Prompt Safety, Injection & Load Stress Suite Report"
+          className="font-mono-meta inline-flex items-center px-2 py-1.5 text-[10px] font-semibold uppercase tracking-wide"
+          style={{
+            borderRadius: "6px",
+            border: "1px solid var(--border-color)",
+            backgroundColor: "var(--bg-primary)",
+            color: "var(--text-primary)",
+          }}
+        >
+          TESTS
+        </Link>
 
         <button
           type="button"

@@ -4,6 +4,7 @@ import {
   ComboRecommendation,
   DietaryType,
   HealthResponse,
+  StressSuiteReport,
   SwiggyAuthStatus,
 } from "@/lib/types";
 
@@ -25,6 +26,14 @@ export async function fetchHealth(): Promise<HealthResponse> {
   const res = await fetch(`${API_BASE}/health`, { cache: "no-store" });
   if (!res.ok) {
     throw new Error(`Health check failed (${res.status})`);
+  }
+  return res.json();
+}
+
+export async function fetchStressReport(): Promise<StressSuiteReport> {
+  const res = await fetch(`${API_BASE}/api/v1/stress-report`, { cache: "no-store" });
+  if (!res.ok) {
+    throw new Error(`Stress report fetch failed (${res.status})`);
   }
   return res.json();
 }

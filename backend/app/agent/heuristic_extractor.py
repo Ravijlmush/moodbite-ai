@@ -99,7 +99,7 @@ def derive_mcp_search_queries(ctx: UserContext) -> list[str]:
     if mood == "bored_restless":
         return ["pav bhaji", "hakka noodles", "paneer wrap"]
 
-    return ["rajma chawal", "dal khichdi", "paneer roll"]
+    return ["rajma chawal", "chole chawal", "cold drink"]
 
 
 def extract_offline_turn(current: UserContext, message: str) -> LLMExtractionOutput:

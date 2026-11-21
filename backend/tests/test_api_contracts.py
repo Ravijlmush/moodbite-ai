@@ -144,3 +144,17 @@ def test_daily_request_limit_20_per_day(client: TestClient) -> None:
     assert h_after["daily_requests_used"] == 20
     assert h_after["daily_requests_remaining"] == 0
 
+
+def test_stress_report_endpoint(client: TestClient) -> None:
+    """Exposes the verified 30-prompt stress suite JSON scorecard."""
+    resp = client.get("/api/v1/stress-report")
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["total_prompts"] == 30
+    assert body["passed"] == 30
+    assert body["failed"] == 0
+    assert body["safety_failures"] == 0
+    assert body["all_1_to_6_and_10_safe"] is True
+    assert len(body["results"]) == 30
+
+

@@ -48,6 +48,30 @@
         }
       }
     },
+    "/api/v1/stress-report": {
+      "get": {
+        "tags": [
+          "health"
+        ],
+        "summary": "Stress Report",
+        "description": "Return the committed 30-prompt adversarial & load stress suite report.",
+        "operationId": "stress_report_api_v1_stress_report_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Stress Report Api V1 Stress Report Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/chat/turn": {
       "post": {
         "tags": [
