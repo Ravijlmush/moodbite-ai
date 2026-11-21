@@ -13,12 +13,16 @@ node_modules/
 .next/
 out/
 npm-debug.log*
+*.tsbuildinfo
 .vercel
 
 # Environment & secrets
 .env
 .env.local
 .env.*.local
+.env*
+!.env.example
+!backend/.env.example
 backend/data/daily_usage.json
 
 # OS & Editors
@@ -26,6 +30,3 @@ backend/data/daily_usage.json
 Thumbs.db
 .vscode/
 .idea/
-
-.vercel
-.env*
