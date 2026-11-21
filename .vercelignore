@@ -1,0 +1,11 @@
+backend/.venv
+backend/__pycache__
+backend/.pytest_cache
+backend/data/daily_usage.json
+backend/.env
+frontend/node_modules
+frontend/.next
+frontend/.env.local
+.git
+.env
+MoodBite_AI_Complete_Specs.zip
