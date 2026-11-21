@@ -2,11 +2,15 @@
 
 MoodBite AI is a state-driven conversational food concierge built from the specification suite in [`specs/`](./specs), including **Spec 10 (`Swiggy Food MCP` integration)** and hardened against a **30-prompt adversarial, safety, messy-input, constraint-conflict & load stress suite** ([`docs/STRESS_TEST_REPORT.md`](./docs/STRESS_TEST_REPORT.md)). In **1 to 3 quick turns** (or one thumb tap on a quick-reply pill), it infers emotional state, energy level, eating-effort tolerance, and dietary constraints, then outputs **3–5 fast-arriving meal combos** inside a strict **Black & White (`#000000` / `#FFFFFF`)** interface and syncs directly to the user's Swiggy cart via `update_food_cart`.
 
-- **Live Vercel Deployment:** https://moodbite-ai-ashy.vercel.app
+- **Live Vercel Deployment:** https://moodbite-ai-ashy.vercel.app (30-prompt scorecard: [`/tests`](https://moodbite-ai-ashy.vercel.app/tests))
 - **GitHub Actions CI (Pytest + 50 Evals + 30-Prompt Stress Suite + Next.js Build):** [`.github/workflows/ci.yml`](./.github/workflows/ci.yml)
-- **60s 1080p Demo Video:** [`docs/moodbite_demo_60s.mp4`](./docs/moodbite_demo_60s.mp4)
+- **60s Demo Video (YouTube):** https://youtu.be/TsZb5sW18To ([local 1080p MP4](./docs/moodbite_demo_60s.mp4))
 - **30-Prompt Stress Suite Report (`30/30 PASS`, `0` safety failures):** [`docs/STRESS_TEST_REPORT.md`](./docs/STRESS_TEST_REPORT.md)
 - **OpenAPI 3.1 Contract:** [`docs/openapi.json`](./docs/openapi.json)
+
+### Watch the 60-Second Demo
+
+[![MoodBite × Swiggy Food MCP — 60s Demo](https://img.youtube.com/vi/TsZb5sW18To/hqdefault.jpg)](https://youtu.be/TsZb5sW18To)
 
 > **Ready immediately — works out of the box & plugs straight into Swiggy MCP + OpenRouter:**
 > - **LLM:** With no API key set (`LLM_PROVIDER=auto`), MoodBite runs on its built-in deterministic mood/preference extractor and 384-dimensional local semantic vector engine. Configure `OPENROUTER_API_KEY` (or `OPENAI_API_KEY` / `GEMINI_API_KEY`) using [`backend/.env.example`](./backend/.env.example) to activate live LLM extraction (protected by a `2.5s` timeout fallback and a configurable `DAILY_REQUEST_LIMIT`).
