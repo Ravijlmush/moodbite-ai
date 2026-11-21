@@ -8,6 +8,7 @@ from fastapi import Request
 
 from app.agent.state_machine import MoodBiteOrchestrator
 from app.config import Settings, get_settings
+from app.mcp.swiggy_oauth import SwiggyOAuthClient, SwiggyTokenStore
 from app.recommender.catalog_repo import (
     CatalogRepository,
     LocalJsonCatalogRepository,
@@ -15,6 +16,7 @@ from app.recommender.catalog_repo import (
 )
 from app.recommender.embeddings import EmbeddingService
 from app.recommender.engine import RecommendationEngine
+from app.recommender.swiggy_live_ranker import SwiggyLiveRanker
 from app.storage.rate_limiter import DailyRateLimiter
 from app.storage.session_store import SessionStore, build_session_store
 
@@ -26,6 +28,9 @@ class AppContainer:
     rate_limiter: DailyRateLimiter
     catalog: CatalogRepository
     engine: RecommendationEngine
+    swiggy_tokens: SwiggyTokenStore
+    swiggy_oauth: SwiggyOAuthClient
+    swiggy_ranker: SwiggyLiveRanker
     orchestrator: MoodBiteOrchestrator
 
 
@@ -58,11 +63,20 @@ def build_container(settings: Settings | None = None) -> AppContainer:
         persist_path=cfg.rate_limit_persist_path,
     )
     engine = RecommendationEngine(catalog=catalog, embedder=embedder)
+    swiggy_tokens = SwiggyTokenStore()
+    swiggy_oauth = SwiggyOAuthClient(
+        mcp_url=cfg.swiggy_mcp_url,
+        redirect_uri=cfg.swiggy_oauth_redirect_uri,
+        configured_client_id=cfg.swiggy_client_id,
+    )
+    swiggy_ranker = SwiggyLiveRanker(embedder=embedder)
     orchestrator = MoodBiteOrchestrator(
         settings=cfg,
         session_store=session_store,
         catalog=catalog,
         engine=engine,
+        swiggy_tokens=swiggy_tokens,
+        swiggy_ranker=swiggy_ranker,
     )
     return AppContainer(
         settings=cfg,
@@ -70,6 +84,9 @@ def build_container(settings: Settings | None = None) -> AppContainer:
         rate_limiter=rate_limiter,
         catalog=catalog,
         engine=engine,
+        swiggy_tokens=swiggy_tokens,
+        swiggy_oauth=swiggy_oauth,
+        swiggy_ranker=swiggy_ranker,
         orchestrator=orchestrator,
     )
 

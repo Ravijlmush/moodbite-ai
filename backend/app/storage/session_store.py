@@ -18,6 +18,8 @@ class SessionRecord(BaseModel):
     user_context: UserContext
     chat_history: list[dict[str, str]] = Field(default_factory=list)
     last_recommendations: list[ComboRecommendation] = Field(default_factory=list)
+    seen_combo_ids: list[str] = Field(default_factory=list)
+    alt_rotation_step: int = 0
     swap_drink_step: int = 0
     cart: list[CartEntry] = Field(default_factory=list)
     updated_at: float = Field(default_factory=time.time)

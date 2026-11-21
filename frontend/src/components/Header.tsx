@@ -8,6 +8,10 @@ interface HeaderProps {
   cartCount: number;
   onOpenCart: () => void;
   onOpenContext: () => void;
+  onOpenSwiggy: () => void;
+  swiggyConnected: boolean;
+  showStatePill: boolean;
+  onToggleStatePill: () => void;
   darkMode: boolean;
   onToggleTheme: () => void;
   onResetSession: () => void;
@@ -19,19 +23,23 @@ export function Header({
   cartCount,
   onOpenCart,
   onOpenContext,
+  onOpenSwiggy,
+  swiggyConnected,
+  showStatePill,
+  onToggleStatePill,
   darkMode,
   onToggleTheme,
   onResetSession,
 }: HeaderProps) {
   return (
     <header
-      className="sticky top-0 z-20 flex items-center justify-between px-4 py-3"
+      className="sticky top-0 z-20 flex items-center justify-between gap-2 px-3.5 py-3"
       style={{
         backgroundColor: "var(--bg-primary)",
         borderBottom: "var(--border-strong)",
       }}
     >
-      <div className="flex items-center gap-2.5">
+      <div className="flex items-center gap-2">
         <button
           type="button"
           onClick={onResetSession}
@@ -48,20 +56,20 @@ export function Header({
         </button>
         <div>
           <h1
-            className="text-[18px] font-semibold tracking-[-0.02em]"
+            className="text-[15px] font-semibold tracking-[-0.02em]"
             style={{ color: "var(--text-primary)" }}
           >
-            MOODBITE AI
+            MOODBITE × SWIGGY MCP
           </h1>
         </div>
       </div>
 
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center gap-1">
         <button
           type="button"
           onClick={onToggleVegOnly}
           aria-pressed={vegOnly}
-          className="font-mono-meta cursor-pointer px-2.5 py-1.5 text-[11px] font-semibold uppercase tracking-wide"
+          className="font-mono-meta cursor-pointer px-2 py-1.5 text-[10px] font-semibold uppercase tracking-wide"
           style={{
             borderRadius: "6px",
             border: "1px solid var(--border-color)",
@@ -69,14 +77,45 @@ export function Header({
             color: vegOnly ? "var(--text-inverse)" : "var(--text-primary)",
           }}
         >
-          {vegOnly ? "VEG ONLY ✓" : "VEG ONLY"}
+          {vegOnly ? "VEG ✓" : "VEG"}
+        </button>
+
+        <button
+          type="button"
+          onClick={onOpenSwiggy}
+          title="Swiggy Food MCP OAuth & Addresses"
+          className="font-mono-meta cursor-pointer px-2 py-1.5 text-[10px] font-semibold uppercase tracking-wide"
+          style={{
+            borderRadius: "6px",
+            border: "1px solid var(--border-color)",
+            backgroundColor: swiggyConnected ? "var(--bg-inverse)" : "var(--bg-primary)",
+            color: swiggyConnected ? "var(--text-inverse)" : "var(--text-primary)",
+          }}
+        >
+          {swiggyConnected ? "MCP LIVE" : "MCP"}
+        </button>
+
+        <button
+          type="button"
+          onClick={onToggleStatePill}
+          onDoubleClick={onOpenContext}
+          title="Toggle live State Inspector pills (double-click for full JSON drawer)"
+          className="font-mono-meta cursor-pointer px-2 py-1.5 text-[10px] font-semibold uppercase tracking-wide"
+          style={{
+            borderRadius: "6px",
+            border: "1px solid var(--border-color)",
+            backgroundColor: showStatePill ? "var(--bg-inverse)" : "var(--bg-primary)",
+            color: showStatePill ? "var(--text-inverse)" : "var(--text-primary)",
+          }}
+        >
+          STATE
         </button>
 
         <button
           type="button"
           onClick={onOpenContext}
-          title="Inspect live UserContext & LLM mode"
-          className="font-mono-meta cursor-pointer px-2.5 py-1.5 text-[11px] font-semibold uppercase tracking-wide"
+          title="Open full UserContext JSON drawer"
+          className="font-mono-meta cursor-pointer px-2 py-1.5 text-[10px] font-semibold uppercase tracking-wide"
           style={{
             borderRadius: "6px",
             border: "1px solid var(--border-color)",
@@ -90,7 +129,7 @@ export function Header({
         <button
           type="button"
           onClick={onOpenCart}
-          className="font-mono-meta cursor-pointer px-2.5 py-1.5 text-[11px] font-semibold uppercase tracking-wide"
+          className="font-mono-meta cursor-pointer px-2 py-1.5 text-[10px] font-semibold uppercase tracking-wide"
           style={{
             borderRadius: "6px",
             border: "1px solid var(--border-color)",
@@ -98,7 +137,7 @@ export function Header({
             color: cartCount > 0 ? "var(--text-inverse)" : "var(--text-primary)",
           }}
         >
-          CART ({cartCount})
+          CART: {cartCount}
         </button>
 
         <button
@@ -106,7 +145,7 @@ export function Header({
           onClick={onToggleTheme}
           title={darkMode ? "Switch to Light Monochrome" : "Switch to Dark Monochrome"}
           aria-label="Toggle monochrome theme"
-          className="font-mono-meta flex h-8 w-8 cursor-pointer items-center justify-center text-[11px] font-semibold"
+          className="font-mono-meta flex h-7 w-7 cursor-pointer items-center justify-center text-[11px] font-semibold"
           style={{
             borderRadius: "6px",
             border: "1px solid var(--border-color)",

@@ -9,10 +9,14 @@ import { Header } from "@/components/Header";
 import { InputBar } from "@/components/InputBar";
 import { MessageBubble } from "@/components/MessageBubble";
 import { QuickReplyPills } from "@/components/QuickReplyPills";
+import { SwiggyAuthDrawer } from "@/components/SwiggyAuthDrawer";
 import { TypingIndicator } from "@/components/TypingIndicator";
 import {
-  addComboToCart,
+  addComboToSwiggyCart,
+  connectSwiggyToken,
+  disconnectSwiggy,
   fetchHealth,
+  fetchSwiggyStatus,
   removeComboFromCart,
   resetSession,
   sendRefineChip,
@@ -25,6 +29,7 @@ import {
   ComboRecommendation,
   FullUserContext,
   HealthResponse,
+  SwiggyAuthStatus,
 } from "@/lib/types";
 
 const INITIAL_PILLS = [
@@ -43,7 +48,7 @@ function createWelcomeMessage(): ChatMessage {
     id: "welcome_msg",
     role: "assistant",
     content:
-      "Hey—how's the day going? Tell me the vibe and I'll sort out food for you.",
+      "Hey—how's the day going? Tell me the vibe and I'll sort out fast Swiggy combos for you.",
     action: "ask_followup",
     quick_reply_pills: INITIAL_PILLS,
     isRefinementList: false,
@@ -60,8 +65,10 @@ export default function HomePage() {
 
   const [vegOnly, setVegOnly] = useState<boolean>(false);
   const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [showStatePill, setShowStatePill] = useState<boolean>(true);
   const [cartOpen, setCartOpen] = useState<boolean>(false);
   const [contextOpen, setContextOpen] = useState<boolean>(false);
+  const [swiggyOpen, setSwiggyOpen] = useState<boolean>(false);
 
   const [addingComboId, setAddingComboId] = useState<string | null>(null);
   const [cart, setCart] = useState<CartResponse>({
@@ -72,11 +79,14 @@ export default function HomePage() {
   });
 
   const [health, setHealth] = useState<HealthResponse | null>(null);
+  const [swiggyStatus, setSwiggyStatus] = useState<SwiggyAuthStatus | null>(null);
+  const [selectedAddressId, setSelectedAddressId] = useState<string | null>(null);
   const [dailyLimit, setDailyLimit] = useState<number>(20);
   const [dailyRemaining, setDailyRemaining] = useState<number>(20);
   const [fullContext, setFullContext] = useState<FullUserContext | null>(null);
   const [lastLatencyMs, setLastLatencyMs] = useState<number | null>(null);
   const [llmMode, setLlmMode] = useState<string>("offline");
+  const [catalogSource, setCatalogSource] = useState<"swiggy_mcp_live" | "demo_fallback">("demo_fallback");
 
   const bottomRef = useRef<HTMLDivElement | null>(null);
 
@@ -88,9 +98,16 @@ export default function HomePage() {
         setDailyLimit(h.daily_request_limit);
         setDailyRemaining(h.daily_requests_remaining);
       })
-      .catch(() => {
-        // Backend may start shortly after frontend; handled smoothly on message send
-      });
+      .catch(() => undefined);
+
+    fetchSwiggyStatus()
+      .then((st) => {
+        setSwiggyStatus(st);
+        if (st.selected_address_id) {
+          setSelectedAddressId(st.selected_address_id);
+        }
+      })
+      .catch(() => undefined);
   }, []);
 
   useEffect(() => {
@@ -113,6 +130,9 @@ export default function HomePage() {
     setFullContext(res.full_context);
     setLastLatencyMs(res.latency_ms);
     setLlmMode(res.llm_mode);
+    if (res.catalog_source) {
+      setCatalogSource(res.catalog_source);
+    }
     if (res.user_context.dietary_type === "veg") {
       setVegOnly(true);
     }
@@ -125,6 +145,8 @@ export default function HomePage() {
       recommendations: res.recommendations,
       crisis_resources: res.crisis_resources,
       quick_reply_pills: res.quick_reply_pills,
+      user_context: res.user_context,
+      catalog_source: res.catalog_source,
       isRefinementList: isRefinement || res.action === "recommend_combos",
     };
     setMessages((prev) => [...prev, assistantMsg]);
@@ -156,6 +178,7 @@ export default function HomePage() {
             dietary_type: vegOnly ? "veg" : null,
             max_budget_inr: null,
           },
+          address_id: selectedAddressId,
         },
         {
           onStatus: (msg) => setStatusText(msg),
@@ -213,6 +236,7 @@ export default function HomePage() {
           dietary_type: vegOnly ? "veg" : null,
           max_budget_inr: null,
         },
+        address_id: selectedAddressId,
       });
       applyTurnResponse(response, true);
     } catch (err) {
@@ -239,16 +263,15 @@ export default function HomePage() {
     setAddingComboId(combo.combo_id);
     setErrorBanner(null);
     try {
-      const updatedCart = await addComboToCart({
+      const updatedCart = await addComboToSwiggyCart({
         session_id: sessionId,
-        combo_id: combo.combo_id,
-        quantity: 1,
         combo,
+        address_id: selectedAddressId,
       });
       setCart(updatedCart);
     } catch (err) {
       setErrorBanner(
-        err instanceof Error ? err.message : "Could not add combo to cart."
+        err instanceof Error ? err.message : "Could not add combo to Swiggy cart."
       );
     } finally {
       setAddingComboId(null);
@@ -264,6 +287,21 @@ export default function HomePage() {
         err instanceof Error ? err.message : "Could not remove combo."
       );
     }
+  }
+
+  async function handleConnectSwiggyToken(token: string) {
+    const st = await connectSwiggyToken(token, selectedAddressId);
+    setSwiggyStatus(st);
+    if (st.selected_address_id) {
+      setSelectedAddressId(st.selected_address_id);
+    }
+  }
+
+  async function handleDisconnectSwiggy() {
+    const st = await disconnectSwiggy();
+    setSwiggyStatus(st);
+    setSelectedAddressId(null);
+    setCatalogSource("demo_fallback");
   }
 
   async function handleResetSession() {
@@ -298,6 +336,10 @@ export default function HomePage() {
         cartCount={cart.total_items}
         onOpenCart={() => setCartOpen(true)}
         onOpenContext={() => setContextOpen(true)}
+        onOpenSwiggy={() => setSwiggyOpen(true)}
+        swiggyConnected={Boolean(swiggyStatus?.connected)}
+        showStatePill={showStatePill}
+        onToggleStatePill={() => setShowStatePill((s) => !s)}
         darkMode={darkMode}
         onToggleTheme={() => setDarkMode((d) => !d)}
         onResetSession={handleResetSession}
@@ -315,8 +357,8 @@ export default function HomePage() {
           className="font-mono-meta text-[10px] font-semibold uppercase tracking-[0.06em]"
           style={{ color: "var(--text-secondary)" }}
         >
-          ENGINE: {llmMode.toUpperCase()}
-          {fullContext ? ` • TURN ${fullContext.turn_count}/3` : " • READY"}
+          {catalogSource === "swiggy_mcp_live" ? "SWIGGY MCP LIVE" : "DEMO CATALOG"} • {llmMode.toUpperCase()}
+          {fullContext ? ` • TURN ${fullContext.turn_count}/3` : ""}
         </span>
         <span
           className="font-mono-meta text-[10px] font-semibold uppercase tracking-[0.06em]"
@@ -348,6 +390,23 @@ export default function HomePage() {
           const isLatestAssistant = index === messages.length - 1 && msg.role === "assistant";
           return (
             <section key={msg.id} className="space-y-3">
+              {showStatePill && msg.user_context ? (
+                <div
+                  className="font-mono-meta inline-block px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.04em]"
+                  style={{
+                    backgroundColor: "var(--bg-subtle)",
+                    border: "1px solid var(--border-color)",
+                    borderRadius: "6px",
+                    color: "var(--text-primary)",
+                  }}
+                >
+                  MOOD={msg.user_context.primary_mood.toUpperCase()} | EFFORT={msg.user_context.effort_to_eat.toUpperCase()} | ETA&lt;={msg.user_context.max_eta_mins}M
+                  {msg.user_context.search_queries && msg.user_context.search_queries.length > 0
+                    ? ` | MCP=${msg.user_context.search_queries[0].toUpperCase()}`
+                    : ""}
+                </div>
+              ) : null}
+
               <MessageBubble role={msg.role} content={msg.content} />
 
               {msg.action === "crisis_support" && msg.crisis_resources ? (
@@ -411,6 +470,16 @@ export default function HomePage() {
         lastLatencyMs={lastLatencyMs}
         llmMode={llmMode}
         onClose={() => setContextOpen(false)}
+      />
+
+      <SwiggyAuthDrawer
+        open={swiggyOpen}
+        status={swiggyStatus}
+        selectedAddressId={selectedAddressId}
+        onSelectAddress={(aid) => setSelectedAddressId(aid)}
+        onConnectToken={handleConnectSwiggyToken}
+        onDisconnect={handleDisconnectSwiggy}
+        onClose={() => setSwiggyOpen(false)}
       />
     </div>
   );

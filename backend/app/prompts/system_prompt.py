@@ -37,6 +37,7 @@ CONVERSATION FLOW:
     },
     "food_preferences": {
       "craving_profiles": ["warm_comfort", "nostalgic", "fizzy_sweet_kick", "bold_spicy", "crunchy", "light_comfort", "sweet_treat", "cooling", "budget_friendly"],
+      "search_queries": ["rajma chawal", "dal khichdi", "paneer roll"],
       "spice_tolerance": "mild | medium | high",
       "effort_to_eat": "zero_mess | standard",
       "portion_size": "light_snack | regular_meal | hearty_feast",

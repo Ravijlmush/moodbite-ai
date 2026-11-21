@@ -57,6 +57,19 @@ export function ComboCard({
           >
             {formatDietaryLabel(combo.dietary_type)}
           </span>
+          {combo.coupon_badge ? (
+            <span
+              className="font-mono-meta px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.04em]"
+              style={{
+                border: "1px solid var(--border-color)",
+                color: "var(--text-primary)",
+                backgroundColor: "var(--bg-subtle)",
+                borderRadius: "4px",
+              }}
+            >
+              {combo.coupon_badge}
+            </span>
+          ) : null}
         </div>
 
         <span
@@ -120,10 +133,10 @@ export function ComboCard({
         }}
       >
         {adding
-          ? "ADDING..."
+          ? "SYNCING WITH SWIGGY CART..."
           : added
-            ? `✓ ADDED TO CART (₹${combo.total_price_inr}${inCartQuantity > 1 ? ` × ${inCartQuantity}` : ""})`
-            : `+ ADD COMBO TO CART • ₹${combo.total_price_inr}`}
+            ? `✓ ADDED TO SWIGGY CART (₹${combo.total_price_inr}${inCartQuantity > 1 ? ` × ${inCartQuantity}` : ""})`
+            : `+ ADD COMBO TO SWIGGY CART • ₹${combo.total_price_inr}`}
       </button>
     </article>
   );

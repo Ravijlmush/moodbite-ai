@@ -26,6 +26,8 @@ export interface ComboRecommendation {
   why_it_fits: string;
   match_score: number;
   dietary_type: "veg" | "egg" | "non_veg";
+  coupon_badge?: string | null;
+  source?: "swiggy_mcp_live" | "demo_fallback";
 }
 
 export interface UserContextSummary {
@@ -37,6 +39,7 @@ export interface UserContextSummary {
   allergies: string[];
   max_budget_inr: number | null;
   craving_profiles: string[];
+  search_queries?: string[];
   spice_tolerance: string;
   state_confidence: number;
 }
@@ -53,6 +56,7 @@ export interface FullUserContext {
   };
   food_preferences: {
     craving_profiles: string[];
+    search_queries?: string[];
     spice_tolerance: string;
     effort_to_eat: string;
     portion_size: string;
@@ -90,6 +94,7 @@ export interface ChatTurnResponse {
   crisis_resources: CrisisResource[];
   latency_ms: number;
   llm_mode: string;
+  catalog_source?: "swiggy_mcp_live" | "demo_fallback";
 }
 
 export interface CartEntry {
@@ -103,6 +108,8 @@ export interface CartResponse {
   items: CartEntry[];
   total_items: number;
   total_price_inr: number;
+  swiggy_synced?: boolean;
+  swiggy_message?: string | null;
 }
 
 export interface HealthResponse {
@@ -117,6 +124,24 @@ export interface HealthResponse {
   daily_request_limit: number;
   daily_requests_used: number;
   daily_requests_remaining: number;
+  swiggy_mcp_connected?: boolean;
+  swiggy_mcp_url?: string;
+}
+
+export interface SwiggyAddress {
+  address_id: string;
+  label: string;
+  address_line: string;
+  lat?: number | null;
+  lng?: number | null;
+}
+
+export interface SwiggyAuthStatus {
+  connected: boolean;
+  mcp_url: string;
+  demo_fallback_mode: boolean;
+  selected_address_id?: string | null;
+  addresses: SwiggyAddress[];
 }
 
 export interface ChatMessage {
@@ -127,5 +152,7 @@ export interface ChatMessage {
   recommendations?: ComboRecommendation[];
   crisis_resources?: CrisisResource[];
   quick_reply_pills?: string[];
+  user_context?: UserContextSummary;
+  catalog_source?: "swiggy_mcp_live" | "demo_fallback";
   isRefinementList?: boolean;
 }

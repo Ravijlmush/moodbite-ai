@@ -55,6 +55,14 @@ class Settings(BaseSettings):
     default_lat: float = 28.6139
     default_lng: float = 77.2090
 
+    # Swiggy Food MCP Integration (Spec 10)
+    swiggy_mcp_url: str = "https://mcp.swiggy.com/food"
+    swiggy_oauth_redirect_uri: str = "http://localhost:8000/auth/swiggy/callback"
+    swiggy_frontend_redirect_uri: str = "http://localhost:3000"
+    swiggy_client_id: str = ""
+    swiggy_mcp_timeout_secs: float = 3.0
+    demo_fallback_mode: bool = False
+
     @property
     def cors_origin_list(self) -> list[str]:
         return [origin.strip() for origin in self.cors_origins.split(",") if origin.strip()]

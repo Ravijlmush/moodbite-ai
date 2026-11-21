@@ -1,9 +1,18 @@
-# MoodBite AI — Conversational Mood-Based Food Delivery Agent
+# MoodBite × Swiggy Food MCP — Conversational Mood-Based Food Concierge
 
-MoodBite AI is a state-driven conversational food concierge built from the full specification suite in [`specs/`](./specs). In **1 to 3 quick turns** (or one thumb tap on a quick-reply pill), it infers emotional state, energy level, eating-effort tolerance, and dietary constraints, then outputs **3–5 fast-arriving meal combos** (Main + Beverage/Dessert from the same restaurant) inside a strict **Black & White (`#000000` / `#FFFFFF`)** interface.
+MoodBite AI is a state-driven conversational food concierge built from the specification suite in [`specs/`](./specs), including **Spec 10 (`Swiggy Food MCP` integration)** and hardened against a 30-prompt adversarial & load stress suite ([`docs/STRESS_TEST_REPORT.md`](./docs/STRESS_TEST_REPORT.md)). In **1 to 3 quick turns** (or one thumb tap on a quick-reply pill), it infers emotional state, energy level, eating-effort tolerance, and dietary constraints, then outputs **3–5 fast-arriving meal combos** inside a strict **Black & White (`#000000` / `#FFFFFF`)** interface and syncs directly to the user's Swiggy cart via `update_food_cart`.
 
-> **Ready immediately — add your API key whenever you want:**
-> With no API key set (`LLM_PROVIDER=auto`), MoodBite runs on its built-in deterministic mood/preference extractor and 384-dimensional local semantic vector engine. When you're ready, paste `OPENAI_API_KEY` or `GEMINI_API_KEY` into [`backend/.env`](./backend/.env) and restart the backend to switch seamlessly to live LLM extraction (with automatic `2.5s` timeout + deterministic fallback).
+> **Ready immediately — works out of the box & plugs straight into Swiggy MCP + OpenRouter:**
+> - **LLM:** With no API key set (`LLM_PROVIDER=auto`), MoodBite runs on its built-in deterministic mood/preference extractor and 384-dimensional local semantic vector engine. Paste `OPENROUTER_API_KEY` (or `OPENAI_API_KEY` / `GEMINI_API_KEY`) into [`backend/.env`](./backend/.env) to activate live LLM extraction (protected by a `2.5s` timeout fallback and a `DAILY_REQUEST_LIMIT=20` quota).
+> - **Swiggy Food MCP (`https://mcp.swiggy.com/food`):** Click **[MCP]** in the header to authenticate via **OAuth 2.1 + PKCE (`S256`)** (or paste a Bearer token) to query live nearby restaurants, menus, coupons, and sync combos via `update_food_cart`. If disconnected or if MCP exceeds `3.0s`, MoodBite falls back smoothly to the curated 159-item Indian comfort catalog.
+
+---
+
+## 60-Second Demo & Reports
+
+- **60s 1080p Demo Video:** [`docs/moodbite_demo_60s.mp4`](./docs/moodbite_demo_60s.mp4)
+- **30-Prompt Stress Suite Report:** [`docs/STRESS_TEST_REPORT.md`](./docs/STRESS_TEST_REPORT.md) (`30/30 PASS`, `0` safety failures)
+- **OpenAPI 3.1 Contract:** [`docs/openapi.json`](./docs/openapi.json)
 
 ---
 

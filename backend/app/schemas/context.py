@@ -25,6 +25,7 @@ class UserState(BaseModel):
 
 class FoodPreferences(BaseModel):
     craving_profiles: list[str] = Field(default_factory=list)
+    search_queries: list[str] = Field(default_factory=list)
     spice_tolerance: SpiceTolerance = "medium"
     effort_to_eat: EffortToEat = "standard"
     portion_size: PortionSize = "regular_meal"

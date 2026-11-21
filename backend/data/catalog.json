@@ -876,6 +876,44 @@
       "is_available": true
     },
     {
+      "id": "dish_102_6",
+      "restaurant_id": "rest_102",
+      "name": "Navratri Vrat Sabudana Khichdi Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain",
+        "vegan",
+        "vrat"
+      ],
+      "allergens": [
+        "peanuts"
+      ],
+      "price_inr": 149,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "vrat",
+        "fasting",
+        "tired_and_down",
+        "comfort_classic",
+        "light_comfort"
+      ],
+      "sensory_tags": [
+        "warm",
+        "soft",
+        "mild",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.85,
+      "heavy_index": 0.42,
+      "pairing_affinities": [
+        "bev_102_2"
+      ],
+      "is_available": true
+    },
+    {
       "id": "dish_102_4",
       "restaurant_id": "rest_102",
       "name": "Aloo Matar Ghee Phulka Plate",
@@ -1349,7 +1387,8 @@
         "vegan"
       ],
       "allergens": [
-        "soy"
+        "soy",
+        "gluten"
       ],
       "price_inr": 185,
       "prep_time_mins": 12,
@@ -1518,8 +1557,7 @@
       "category": "beverage",
       "dietary_type": "veg",
       "dietary_tags": [
-        "veg",
-        "jain"
+        "veg"
       ],
       "allergens": [],
       "price_inr": 49,
@@ -1611,7 +1649,7 @@
     {
       "id": "dish_105_2",
       "restaurant_id": "rest_105",
-      "name": "Ghee Pongal & Sambar Bowl",
+      "name": "Jain Ghee Pongal & Moong Dal Bowl",
       "category": "main_bowl",
       "dietary_type": "veg",
       "dietary_tags": [
@@ -1640,6 +1678,43 @@
       "heavy_index": 0.44,
       "pairing_affinities": [
         "bev_105_2",
+        "bev_105_1"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_105_6",
+      "restaurant_id": "rest_105",
+      "name": "Vrat Sendha Namak Sabudana & Curd Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain",
+        "vrat"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 155,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "vrat",
+        "fasting",
+        "tired_and_down",
+        "light_comfort",
+        "comfort_classic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "soft",
+        "mild",
+        "soothing"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.84,
+      "heavy_index": 0.38,
+      "pairing_affinities": [
         "bev_105_1"
       ],
       "is_available": true
@@ -2019,6 +2094,43 @@
       "is_available": true
     },
     {
+      "id": "dish_106_6",
+      "restaurant_id": "rest_106",
+      "name": "Navratri Kuttu Paneer & Makhana Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain",
+        "vrat"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "price_inr": 169,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "vrat",
+        "fasting",
+        "tired_and_down",
+        "comfort_classic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "soft",
+        "mildly_spiced",
+        "hearty"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.86,
+      "heavy_index": 0.48,
+      "pairing_affinities": [
+        "bev_106_1",
+        "des_106_3"
+      ],
+      "is_available": true
+    },
+    {
       "id": "bev_106_1",
       "restaurant_id": "rest_106",
       "name": "Jain Jeera Mint Cooler",
@@ -2289,8 +2401,7 @@
       "dietary_type": "veg",
       "dietary_tags": [
         "veg",
-        "vegan",
-        "jain"
+        "vegan"
       ],
       "allergens": [],
       "price_inr": 45,
@@ -2974,8 +3085,7 @@
       "dietary_type": "veg",
       "dietary_tags": [
         "veg",
-        "vegan",
-        "jain"
+        "vegan"
       ],
       "allergens": [],
       "price_inr": 45,
@@ -3292,7 +3402,9 @@
         "veg",
         "vegan"
       ],
-      "allergens": [],
+      "allergens": [
+        "gluten"
+      ],
       "price_inr": 139,
       "prep_time_mins": 12,
       "mood_tags": [
@@ -3310,6 +3422,45 @@
       "effort_to_eat": "zero_mess",
       "dopamine_score": 0.86,
       "heavy_index": 0.58,
+      "pairing_affinities": [
+        "bev_112_1",
+        "bev_112_2"
+      ],
+      "is_available": true
+    },
+    {
+      "id": "dish_112_5",
+      "restaurant_id": "rest_112",
+      "name": "Vrat Makhana & Samak Rice Kheer Bowl",
+      "category": "main_bowl",
+      "dietary_type": "veg",
+      "dietary_tags": [
+        "veg",
+        "jain",
+        "vrat"
+      ],
+      "allergens": [
+        "dairy",
+        "nuts"
+      ],
+      "price_inr": 159,
+      "prep_time_mins": 12,
+      "mood_tags": [
+        "vrat",
+        "fasting",
+        "tired_and_down",
+        "sweet_treat",
+        "comfort_classic"
+      ],
+      "sensory_tags": [
+        "warm",
+        "sweet",
+        "soft",
+        "creamy"
+      ],
+      "effort_to_eat": "zero_mess",
+      "dopamine_score": 0.87,
+      "heavy_index": 0.45,
       "pairing_affinities": [
         "bev_112_1",
         "bev_112_2"
@@ -3691,8 +3842,7 @@
       "dietary_type": "veg",
       "dietary_tags": [
         "veg",
-        "vegan",
-        "jain"
+        "vegan"
       ],
       "allergens": [],
       "price_inr": 49,
@@ -4550,7 +4700,8 @@
         "vegan"
       ],
       "allergens": [
-        "soy"
+        "soy",
+        "gluten"
       ],
       "price_inr": 165,
       "prep_time_mins": 12,
@@ -4611,8 +4762,7 @@
       "dietary_type": "veg",
       "dietary_tags": [
         "veg",
-        "vegan",
-        "jain"
+        "vegan"
       ],
       "allergens": [],
       "price_inr": 45,

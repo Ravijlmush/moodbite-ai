@@ -4,6 +4,7 @@ import {
   ComboRecommendation,
   DietaryType,
   HealthResponse,
+  SwiggyAuthStatus,
 } from "@/lib/types";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "";
@@ -17,6 +18,7 @@ export interface TurnPayload {
     dietary_type: DietaryType;
     max_budget_inr: number | null;
   };
+  address_id?: string | null;
 }
 
 export async function fetchHealth(): Promise<HealthResponse> {
@@ -148,6 +150,7 @@ export async function sendRefineChip(payload: {
   chip: string;
   location: { lat: number; lng: number };
   active_filters?: { dietary_type: DietaryType; max_budget_inr: number | null };
+  address_id?: string | null;
 }): Promise<ChatTurnResponse> {
   const res = await fetch(`${API_BASE}/api/v1/chat/refine`, {
     method: "POST",
@@ -158,6 +161,64 @@ export async function sendRefineChip(payload: {
     throw new Error(`Refine failed (${res.status})`);
   }
   return res.json();
+}
+
+export async function addComboToSwiggyCart(payload: {
+  session_id: string;
+  combo: ComboRecommendation;
+  address_id?: string | null;
+}): Promise<CartResponse> {
+  const res = await fetch(`${API_BASE}/api/v1/cart/add-combo`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      session_id: payload.session_id,
+      restaurant_id: payload.combo.restaurant.id,
+      item_ids: payload.combo.items.map((it) => it.item_id),
+      combo_id: payload.combo.combo_id,
+      combo: payload.combo,
+      address_id: payload.address_id ?? null,
+    }),
+  });
+  if (!res.ok) {
+    throw new Error(`Add combo to Swiggy cart failed (${res.status})`);
+  }
+  return res.json();
+}
+
+export async function fetchSwiggyStatus(): Promise<SwiggyAuthStatus> {
+  const res = await fetch(`${API_BASE}/auth/swiggy/status`, { cache: "no-store" });
+  if (!res.ok) {
+    throw new Error(`Swiggy status failed (${res.status})`);
+  }
+  return res.json();
+}
+
+export async function connectSwiggyToken(
+  accessToken: string,
+  addressId?: string | null
+): Promise<SwiggyAuthStatus> {
+  const res = await fetch(`${API_BASE}/auth/swiggy/token`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ access_token: accessToken, address_id: addressId ?? null }),
+  });
+  if (!res.ok) {
+    throw new Error(`Swiggy token connect failed (${res.status})`);
+  }
+  return res.json();
+}
+
+export async function disconnectSwiggy(): Promise<SwiggyAuthStatus> {
+  const res = await fetch(`${API_BASE}/auth/swiggy/logout`, { method: "POST" });
+  if (!res.ok) {
+    throw new Error(`Swiggy logout failed (${res.status})`);
+  }
+  return res.json();
+}
+
+export function getSwiggyOAuthLoginUrl(): string {
+  return `${API_BASE}/auth/swiggy/login`;
 }
 
 export async function addComboToCart(payload: {

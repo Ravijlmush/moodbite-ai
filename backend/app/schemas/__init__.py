@@ -2,6 +2,7 @@
 
 from app.schemas.api import (
     ActiveFilters,
+    AddComboToSwiggyCartRequest,
     AddToCartRequest,
     CartEntry,
     CartResponse,
@@ -13,6 +14,9 @@ from app.schemas.api import (
     HealthResponse,
     Location,
     SessionDetailResponse,
+    SwiggyAddress,
+    SwiggyAuthStatusResponse,
+    SwiggyTokenConnectRequest,
     UserContextSummary,
 )
 from app.schemas.catalog import (
@@ -33,6 +37,7 @@ from app.schemas.context import (
 
 __all__ = [
     "ActiveFilters",
+    "AddComboToSwiggyCartRequest",
     "AddToCartRequest",
     "CartEntry",
     "CartResponse",
@@ -53,6 +58,9 @@ __all__ = [
     "Restaurant",
     "RoutingState",
     "SessionDetailResponse",
+    "SwiggyAddress",
+    "SwiggyAuthStatusResponse",
+    "SwiggyTokenConnectRequest",
     "UserContext",
     "UserContextSummary",
     "UserState",

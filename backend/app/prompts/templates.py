@@ -36,6 +36,16 @@ CRISIS_SUPPORT_MESSAGE = (
     "Please reach out to someone who can support you right away:"
 )
 
+DISORDERED_EATING_SUPPORT_MESSAGE = (
+    "You never deserve to be punished or go hungry—you matter, and it sounds like things feel overwhelming right now. "
+    "I'm pausing food suggestions here so you can talk with someone who genuinely cares and can support you:"
+)
+
+HARMFUL_REFUSAL_MESSAGE = (
+    "I can't help with anything poisonous, unsafe, or meant to harm someone. "
+    "If you're feeling frustrated or angry and want safe, real comfort food instead, I'm here to help with that."
+)
+
 CRISIS_HELPLINES: list[CrisisResource] = [
     CrisisResource(
         name="Tele-MANAS (Govt. of India Mental Health Helpline)",

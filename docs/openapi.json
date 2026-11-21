@@ -296,6 +296,48 @@
         }
       }
     },
+    "/api/v1/cart/add-combo": {
+      "post": {
+        "tags": [
+          "cart"
+        ],
+        "summary": "Add Combo To Swiggy Cart",
+        "description": "Spec 10 Section 7.2: Calls SwiggyFoodMCPClient.add_combo_to_cart when connected, with local cart sync.",
+        "operationId": "add_combo_to_swiggy_cart_api_v1_cart_add_combo_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddComboToSwiggyCartRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CartResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/cart/{session_id}": {
       "get": {
         "tags": [
@@ -388,6 +430,182 @@
           }
         }
       }
+    },
+    "/auth/swiggy/login": {
+      "get": {
+        "tags": [
+          "swiggy-mcp"
+        ],
+        "summary": "Swiggy Oauth Login",
+        "operationId": "swiggy_oauth_login_auth_swiggy_login_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/swiggy/callback": {
+      "get": {
+        "tags": [
+          "swiggy-mcp"
+        ],
+        "summary": "Swiggy Oauth Callback",
+        "operationId": "swiggy_oauth_callback_auth_swiggy_callback_get",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Code"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "State"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/swiggy/token": {
+      "post": {
+        "tags": [
+          "swiggy-mcp"
+        ],
+        "summary": "Connect Swiggy Token",
+        "operationId": "connect_swiggy_token_auth_swiggy_token_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SwiggyTokenConnectRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SwiggyAuthStatusResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/swiggy/logout": {
+      "post": {
+        "tags": [
+          "swiggy-mcp"
+        ],
+        "summary": "Logout Swiggy",
+        "operationId": "logout_swiggy_auth_swiggy_logout_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SwiggyAuthStatusResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/swiggy/status": {
+      "get": {
+        "tags": [
+          "swiggy-mcp"
+        ],
+        "summary": "Get Swiggy Status",
+        "operationId": "get_swiggy_status_auth_swiggy_status_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SwiggyAuthStatusResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/swiggy/addresses": {
+      "get": {
+        "tags": [
+          "swiggy-mcp"
+        ],
+        "summary": "List Swiggy Addresses",
+        "operationId": "list_swiggy_addresses_api_v1_swiggy_addresses_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SwiggyAddress"
+                  },
+                  "type": "array",
+                  "title": "Response List Swiggy Addresses Api V1 Swiggy Addresses Get"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -430,6 +648,80 @@
         },
         "type": "object",
         "title": "ActiveFilters"
+      },
+      "AddComboToSwiggyCartRequest": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Session Id"
+          },
+          "restaurant_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Restaurant Id"
+          },
+          "item_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Item Ids"
+          },
+          "combo_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Combo Id"
+          },
+          "combo": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ComboRecommendation"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "address_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Address Id"
+          },
+          "swiggy_access_token": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Swiggy Access Token"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "restaurant_id",
+          "item_ids"
+        ],
+        "title": "AddComboToSwiggyCartRequest"
       },
       "AddToCartRequest": {
         "properties": {
@@ -514,6 +806,22 @@
             "type": "integer",
             "title": "Total Price Inr",
             "default": 0
+          },
+          "swiggy_synced": {
+            "type": "boolean",
+            "title": "Swiggy Synced",
+            "default": false
+          },
+          "swiggy_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Swiggy Message"
           }
         },
         "type": "object",
@@ -613,6 +921,28 @@
                 "type": "null"
               }
             ]
+          },
+          "swiggy_access_token": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Swiggy Access Token"
+          },
+          "address_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Address Id"
           }
         },
         "type": "object",
@@ -639,21 +969,41 @@
           },
           "message": {
             "type": "string",
-            "maxLength": 1000,
-            "minLength": 1,
-            "title": "Message"
+            "title": "Message",
+            "default": ""
           },
           "location": {
             "$ref": "#/components/schemas/Location"
           },
           "active_filters": {
             "$ref": "#/components/schemas/ActiveFilters"
+          },
+          "swiggy_access_token": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Swiggy Access Token"
+          },
+          "address_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Address Id"
           }
         },
         "type": "object",
         "required": [
-          "session_id",
-          "message"
+          "session_id"
         ],
         "title": "ChatTurnRequest"
       },
@@ -725,6 +1075,15 @@
             ],
             "title": "Llm Mode",
             "default": "offline"
+          },
+          "catalog_source": {
+            "type": "string",
+            "enum": [
+              "swiggy_mcp_live",
+              "demo_fallback"
+            ],
+            "title": "Catalog Source",
+            "default": "demo_fallback"
           }
         },
         "type": "object",
@@ -823,6 +1182,26 @@
             ],
             "title": "Dietary Type",
             "default": "veg"
+          },
+          "coupon_badge": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Coupon Badge"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "swiggy_mcp_live",
+              "demo_fallback"
+            ],
+            "title": "Source",
+            "default": "demo_fallback"
           }
         },
         "type": "object",
@@ -902,6 +1281,13 @@
             },
             "type": "array",
             "title": "Craving Profiles"
+          },
+          "search_queries": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Search Queries"
           },
           "spice_tolerance": {
             "type": "string",
@@ -1058,6 +1444,16 @@
             "type": "integer",
             "title": "Daily Requests Remaining",
             "default": 20
+          },
+          "swiggy_mcp_connected": {
+            "type": "boolean",
+            "title": "Swiggy Mcp Connected",
+            "default": false
+          },
+          "swiggy_mcp_url": {
+            "type": "string",
+            "title": "Swiggy Mcp Url",
+            "default": "https://mcp.swiggy.com/food"
           }
         },
         "type": "object",
@@ -1165,6 +1561,117 @@
         ],
         "title": "SessionDetailResponse"
       },
+      "SwiggyAddress": {
+        "properties": {
+          "address_id": {
+            "type": "string",
+            "title": "Address Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label",
+            "default": "Saved Address"
+          },
+          "address_line": {
+            "type": "string",
+            "title": "Address Line",
+            "default": ""
+          },
+          "lat": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lat"
+          },
+          "lng": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lng"
+          }
+        },
+        "type": "object",
+        "required": [
+          "address_id"
+        ],
+        "title": "SwiggyAddress"
+      },
+      "SwiggyAuthStatusResponse": {
+        "properties": {
+          "connected": {
+            "type": "boolean",
+            "title": "Connected"
+          },
+          "mcp_url": {
+            "type": "string",
+            "title": "Mcp Url"
+          },
+          "demo_fallback_mode": {
+            "type": "boolean",
+            "title": "Demo Fallback Mode"
+          },
+          "selected_address_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Selected Address Id"
+          },
+          "addresses": {
+            "items": {
+              "$ref": "#/components/schemas/SwiggyAddress"
+            },
+            "type": "array",
+            "title": "Addresses"
+          }
+        },
+        "type": "object",
+        "required": [
+          "connected",
+          "mcp_url",
+          "demo_fallback_mode"
+        ],
+        "title": "SwiggyAuthStatusResponse"
+      },
+      "SwiggyTokenConnectRequest": {
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "minLength": 4,
+            "title": "Access Token"
+          },
+          "address_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Address Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "access_token"
+        ],
+        "title": "SwiggyTokenConnectRequest"
+      },
       "UserContext": {
         "properties": {
           "session_id": {
@@ -1267,6 +1774,13 @@
             },
             "type": "array",
             "title": "Craving Profiles"
+          },
+          "search_queries": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Search Queries"
           },
           "spice_tolerance": {
             "type": "string",

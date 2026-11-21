@@ -3,9 +3,17 @@
 from __future__ import annotations
 
 import hashlib
+import re
 
 from app.schemas.catalog import MenuItem
 from app.schemas.context import UserContext
+
+_MEDICAL_CURE_RE = re.compile(
+    r"(?:\bcur(?:e|es|ing)\s+(?:my\s+)?(?:anxiety|depression|diabetes|stress|mental\s+illness|disease|disorder)\b|\bpermanently\s+cure\b|\btreat\s+(?:anxiety|depression|diabetes)\s+permanently\b|\bfood\s+(?:that\s+)?cures\b)",
+    re.IGNORECASE,
+)
+_DIABETIC_RE = re.compile(r"\b(?:diabetic|diabetes|high\s+blood\s+sugar|insulin)\b", re.IGNORECASE)
+_PREGNANT_RE = re.compile(r"\b(?:pregnant|pregnancy|expecting\s+a\s+baby|trimester)\b", re.IGNORECASE)
 
 
 def _pick(seed_text: str, options: list[str]) -> str:
@@ -18,6 +26,12 @@ def build_mood_badge(main: MenuItem, context: UserContext) -> str:
     tags = set(main.mood_tags)
     mood = context.user_state.primary_mood
 
+    if "vrat" in tags and "vrat" in context.food_preferences.craving_profiles:
+        return "NAVRATRI VRAT"
+    if "__diabetic_safe__" in context.food_preferences.excluded_ingredients:
+        return "LOW-SUGAR PICK"
+    if "__pregnancy_safe__" in context.food_preferences.excluded_ingredients:
+        return "GENTLE & COOKED"
     if mood == "sluggish_heavy" or ("light_comfort" in tags and main.heavy_index <= 0.35):
         return "LIGHT & WARM"
     if mood == "stressed_angry" and ("bold_spicy" in tags or "sensory_release" in tags):
@@ -50,6 +64,12 @@ def build_why_it_fits(
     is_fizzy = "fizzy" in booster.sensory_tags or "fizzy_sweet_kick" in booster.mood_tags
     is_cooling = "cooling" in booster.mood_tags or "digestive" in booster.mood_tags
     easy = main.effort_to_eat == "zero_mess"
+
+    if "__diabetic_safe__" in context.food_preferences.excluded_ingredients:
+        return f"Steady, low-sugar comfort paired with an unsweetened/zero-sugar sip—reaches you in {eta_mins} mins."
+
+    if "__pregnancy_safe__" in context.food_preferences.excluded_ingredients:
+        return f"Freshly cooked, gentle warmth paired with a caffeine-free drink—arriving in {eta_mins} mins."
 
     if mood == "tired_and_down":
         if is_fizzy:
@@ -120,16 +140,103 @@ def build_recommendation_intro(
     *,
     user_message: str = "",
     used_fallback: bool = False,
+    is_alt_rotation: bool = False,
 ) -> str:
     msg = user_message.lower()
     diet = context.hard_constraints.dietary_type
     diet_tag = f"{diet} " if diet in ("veg", "jain", "vegan") else ""
     seed = f"{context.session_id}:{context.turn_count}:{msg}"
+    medical = {
+        "medical_cure_claim": bool(_MEDICAL_CURE_RE.search(user_message)),
+        "diabetic": bool(_DIABETIC_RE.search(user_message)),
+        "pregnant": bool(_PREGNANT_RE.search(user_message)),
+    }
 
     if used_fallback:
         return f"Say no more—pulled {count} fast, zero-mess {diet_tag}combos so you don't have to think:"
 
-    # React directly to specific real-life situations mentioned by the user
+    if is_alt_rotation:
+        return _pick(
+            seed,
+            [
+                f"Fair enough—swapped to {count} totally different kitchens nearby:",
+                f"Got it, tossing those aside—here are {count} fresh {diet_tag}combos instead:",
+            ],
+        )
+
+    # Highest-priority safety & health context disclosures
+    if medical["medical_cure_claim"]:
+        return (
+            "No food can cure anxiety permanently—a doctor or therapist is the best call for lasting relief. "
+            f"If you just want something warm and grounding right now, here are {count} calming {diet_tag}combos:"
+        )
+
+    if "__diabetic_safe__" in context.food_preferences.excluded_ingredients or medical["diabetic"]:
+        return (
+            "Sorry you're feeling low. Because of diabetes, I skipped sugary sweets and sodas—"
+            f"here are {count} steady, low-sugar {diet_tag}comfort picks (always follow your doctor's guidance):"
+        )
+
+    if "__pregnancy_safe__" in context.food_preferences.excluded_ingredients or medical["pregnant"]:
+        return (
+            "Keeping things gentle, freshly cooked, and caffeine-free while you're expecting—"
+            f"here are {count} calming {diet_tag}combos (check with your doctor for personal sensitivities):"
+        )
+
+    # Budget lower than minimum deliverable combo (e.g., ₹50)
+    low_budget_match = re.search(r"(?:₹|rs\.?)\s*(\d{2,3})\b", msg)
+    if low_budget_match and int(low_budget_match.group(1)) < 145:
+        return (
+            f"Heads up: full delivered combos start around ₹149, so ₹{low_budget_match.group(1)} won't cover a combo. "
+            f"Here are the {count} lowest-cost, ready-to-eat {diet_tag}options (zero kitchen or fridge needed):"
+        )
+
+    # Stacked allergies / religious exclusions confirmation
+    if "beef" in context.food_preferences.excluded_ingredients or "pork" in context.food_preferences.excluded_ingredients:
+        return (
+            "Keeping it calming and 100% free of beef and pork—"
+            f"here are {count} steady {diet_tag}combos arriving fast:"
+        )
+
+    if context.hard_constraints.allergies:
+        allergy_str = ", ".join(context.hard_constraints.allergies)
+        return (
+            f"Locked out {allergy_str}"
+            f"{f' + {diet}' if diet else ''} strictly—here are {count} verified safe combos arriving fast:"
+        )
+
+    # Cultural / time / calorie contexts
+    if any(w in msg for w in ("navratri", "vrat", "upvas", "fasting")):
+        return (
+            "Happy Navratri! Kept everything pure sattvik (no onion, garlic, meat, or eggs) "
+            f"with {count} gentle vrat-friendly picks to lift your energy:"
+        )
+
+    if "jain" in msg:
+        return f"Sending gentle comfort—here are {count} pure Jain (no onion, garlic, or root veg) picks:"
+
+    if any(w in msg for w in ("3 a.m", "3 am", "3am", "2 a.m", "2am", "4 a.m", "4am")):
+        return f"Up at 3 a.m. and feeling good—here are {count} late-night {diet_tag}treats from fast kitchens:"
+
+    if any(w in msg for w in ("1200 calorie", "low calorie", "calorie diet")):
+        return f"Kept it light-calorie and {diet_tag}friendly without killing the comfort—here are {count} lighter bowls:"
+
+    if "tired" in msg and "excited" in msg and "anxious" in msg:
+        return (
+            f"Tired, excited, and anxious all at once is a wild mix—let's ground it with {count} "
+            f"zero-mess {diet_tag}comfort combos:"
+        )
+
+    if any(w in msg for w in ("but now", "actually i'm", "actually im")):
+        return f"Love the mood turnaround! Switching gears to {count} upbeat {diet_tag}picks:"
+
+    # Hinglish / Hindi Devanagari natural matching
+    if any(w in msg for w in ("मन उदास", "उदास", "मीठा", "दुखी")):
+        return f"थोड़ी गर्माहट और मीठे के साथ मूड बेहतर करने के लिए ये {count} झटपट कॉम्बो हैं:"
+    if any(w in msg for w in ("yaar", "kuch", "khana hai")):
+        return f"समझ गया yaar—टेन्शन छोड़ो, ये {count} तीखे और झटपट {diet_tag}कॉम्बो देखो:"
+
+    # Specific real-life situations
     if any(w in msg for w in ("meeting", "boss", "work", "office", "deadline")):
         return _pick(
             seed,

@@ -26,6 +26,8 @@ async def health_check(container: AppContainer = Depends(get_container)) -> Heal
         daily_request_limit=quota.limit,
         daily_requests_used=quota.used,
         daily_requests_remaining=quota.remaining,
+        swiggy_mcp_connected=container.swiggy_tokens.is_connected,
+        swiggy_mcp_url=container.settings.swiggy_mcp_url,
     )
 
 

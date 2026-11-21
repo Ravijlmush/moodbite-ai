@@ -55,6 +55,57 @@ def item_matches_dietary(item: MenuItem, dietary_type: DietaryType | None) -> bo
     return True
 
 
+SUGARY_DIABETIC_EXCLUDE_TOKENS = (
+    "coca-cola can",
+    "coke can",
+    "chilled coke",
+    "thums up",
+    "limca",
+    "sprite",
+    "pepsi",
+    "iced tea",
+    "sweet lassi",
+    "cold coffee",
+    "hot chocolate",
+    "honey",
+    "sweet lime",
+    "aam panna",
+    "ginger ale",
+    "ginger fizz",
+    "kokum",
+    "kala khatta",
+    "gulab jamun",
+    "brownie",
+    "lava cake",
+    "halwa",
+    "kheer",
+    "mousse",
+    "ladoo",
+    "kesari",
+    "phirni",
+    "custard",
+    "shahi tukda",
+    "double ka meetha",
+    "pudding",
+    "cookie",
+    "banana",
+)
+
+PREGNANCY_EXCLUDE_TOKENS = (
+    "coffee",
+    "americano",
+    "coca-cola",
+    "coke",
+    "thums up",
+    "pepsi",
+    "papdi",
+    "fiery",
+    "schezwan",
+    "dan dan",
+    "peri-peri",
+)
+
+
 def item_is_allergy_safe(
     item: MenuItem,
     allergies: list[str],
@@ -83,7 +134,19 @@ def item_is_allergy_safe(
 
     for excluded in excluded_ingredients:
         ex_norm = excluded.strip().lower()
-        if ex_norm and ex_norm in lowered_name:
+        if not ex_norm:
+            continue
+        if ex_norm == "__diabetic_safe__":
+            if item.category == "dessert":
+                return False
+            if any(tok in lowered_name for tok in SUGARY_DIABETIC_EXCLUDE_TOKENS):
+                return False
+            continue
+        if ex_norm == "__pregnancy_safe__":
+            if any(tok in lowered_name for tok in PREGNANCY_EXCLUDE_TOKENS):
+                return False
+            continue
+        if ex_norm in lowered_name:
             return False
 
     return True
@@ -113,8 +176,11 @@ class RecommendationEngine:
         user_message: str = "",
         limit: int = 4,
         swap_drink_step: int = 0,
+        seen_combo_ids: list[str] | None = None,
+        alt_rotation_step: int = 0,
     ) -> list[ComboRecommendation]:
         limit = max(3, min(5, limit))
+        seen_set = set(seen_combo_ids or [])
         query_vec = self.embedder.embed_user_context(context, user_message=user_message)
 
         # Stage 1: Hard Safety & Logistics Filter
@@ -172,7 +238,8 @@ class RecommendationEngine:
                 continue
 
             ranked_boosters = self._rank_boosters(main, eligible_boosters, context)
-            chosen_booster, affinity_score = ranked_boosters[swap_drink_step % len(ranked_boosters)]
+            booster_idx = (swap_drink_step + alt_rotation_step) % len(ranked_boosters)
+            chosen_booster, affinity_score = ranked_boosters[booster_idx]
 
             total_score = self._compute_combo_score(
                 main=main,
@@ -183,6 +250,9 @@ class RecommendationEngine:
                 affinity_score=affinity_score,
                 context=context,
             )
+            combo_id = f"cmb_{rest.id}_{main.id}_{chosen_booster.id}"
+            if combo_id in seen_set:
+                total_score = max(0.0, total_score - 0.35)
             scored_combos.append(
                 _ScoredCombo(
                     main=main,
@@ -194,9 +264,13 @@ class RecommendationEngine:
                 )
             )
 
-        # If top-25 mains didn't yield 3 distinct restaurants under tight budget, scan remaining mains safely
-        distinct_rest_count = len({c.restaurant.id for c in scored_combos})
-        if distinct_rest_count < 3 and len(candidate_mains) > 25:
+        # Scan remaining candidate mains when top-25 lacks enough unseen or distinct restaurants
+        unseen_rests = {
+            c.restaurant.id
+            for c in scored_combos
+            if f"cmb_{c.restaurant.id}_{c.main.id}_{c.booster.id}" not in seen_set
+        }
+        if (len(unseen_rests) < limit or len({c.restaurant.id for c in scored_combos}) < 3) and len(candidate_mains) > 25:
             for main, main_mood_score in candidate_mains[25:]:
                 rest, eta = open_restaurants[main.restaurant_id]
                 eligible_boosters = boosters_by_rest.get(main.restaurant_id, [])
@@ -205,7 +279,8 @@ class RecommendationEngine:
                 if not eligible_boosters:
                     continue
                 ranked_boosters = self._rank_boosters(main, eligible_boosters, context)
-                chosen_booster, affinity_score = ranked_boosters[swap_drink_step % len(ranked_boosters)]
+                booster_idx = (swap_drink_step + alt_rotation_step) % len(ranked_boosters)
+                chosen_booster, affinity_score = ranked_boosters[booster_idx]
                 total_score = self._compute_combo_score(
                     main=main,
                     booster=chosen_booster,
@@ -215,6 +290,9 @@ class RecommendationEngine:
                     affinity_score=affinity_score,
                     context=context,
                 )
+                combo_id = f"cmb_{rest.id}_{main.id}_{chosen_booster.id}"
+                if combo_id in seen_set:
+                    total_score = max(0.0, total_score - 0.35)
                 scored_combos.append(
                     _ScoredCombo(
                         main=main,
@@ -227,7 +305,7 @@ class RecommendationEngine:
                 )
 
         # Stage 4: Diversity & Restaurant Deduplication (max 1 combo per restaurant, distinct archetypes)
-        selected = self._select_diverse_combos(scored_combos, limit=limit)
+        selected = self._select_diverse_combos(scored_combos, limit=limit, seen_set=seen_set)
         return [self._to_recommendation(combo, context) for combo in selected]
 
     def _compute_mood_score(self, main: MenuItem, context: UserContext, query_vec: list[float]) -> float:
@@ -257,6 +335,9 @@ class RecommendationEngine:
 
         if "sweet_treat" in desired_tokens or context.user_state.primary_mood == "celebratory_happy":
             modifier += 0.08 * main.dopamine_score
+
+        if "vrat" in desired_tokens and "vrat" in item_tokens:
+            modifier += 0.25
 
         if context.hard_constraints.max_budget_inr and context.hard_constraints.max_budget_inr <= 220:
             if "budget_friendly" in item_tokens or main.price_inr <= 155:
@@ -324,14 +405,23 @@ class RecommendationEngine:
         )
         return round(max(0.0, min(1.0, score)), 4)
 
-    def _select_diverse_combos(self, scored: list[_ScoredCombo], limit: int) -> list[_ScoredCombo]:
+    def _select_diverse_combos(
+        self,
+        scored: list[_ScoredCombo],
+        limit: int,
+        seen_set: set[str] | None = None,
+    ) -> list[_ScoredCombo]:
         scored.sort(key=lambda c: c.total_score, reverse=True)
+        seen = seen_set or set()
         chosen: list[_ScoredCombo] = []
         used_restaurants: set[str] = set()
         used_categories: set[str] = set()
 
-        # Pass 1: maximize both restaurant uniqueness and main-dish archetype diversity
+        # Pass 1: maximize unseen combos, restaurant uniqueness, and main-dish archetype diversity
         for combo in scored:
+            cid = f"cmb_{combo.restaurant.id}_{combo.main.id}_{combo.booster.id}"
+            if cid in seen:
+                continue
             if combo.restaurant.id in used_restaurants:
                 continue
             if combo.main.category in used_categories:
@@ -342,7 +432,19 @@ class RecommendationEngine:
             if len(chosen) >= limit:
                 return chosen
 
-        # Pass 2: fill up to limit while strictly enforcing max 1 combo per restaurant
+        # Pass 2: unseen combos with restaurant uniqueness
+        for combo in scored:
+            cid = f"cmb_{combo.restaurant.id}_{combo.main.id}_{combo.booster.id}"
+            if cid in seen:
+                continue
+            if combo.restaurant.id in used_restaurants:
+                continue
+            chosen.append(combo)
+            used_restaurants.add(combo.restaurant.id)
+            if len(chosen) >= limit:
+                return chosen
+
+        # Pass 3: fill up to limit if catalog exhausted under strict filters
         for combo in scored:
             if combo.restaurant.id in used_restaurants:
                 continue

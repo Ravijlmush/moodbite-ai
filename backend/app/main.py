@@ -12,6 +12,7 @@ from app.api.deps import AppContainer, build_container
 from app.api.routes_cart import router as cart_router
 from app.api.routes_chat import router as chat_router
 from app.api.routes_health import router as health_router
+from app.api.routes_swiggy import router as swiggy_router
 from app.config import Settings, get_settings
 
 
@@ -58,6 +59,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(health_router)
     app.include_router(chat_router)
     app.include_router(cart_router)
+    app.include_router(swiggy_router)
     return app
 
 

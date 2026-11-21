@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Literal, Optional
 
 from pydantic import BaseModel, Field
 
@@ -73,3 +73,5 @@ class ComboRecommendation(BaseModel):
     why_it_fits: str
     match_score: float = Field(..., ge=0.0, le=1.0)
     dietary_type: CatalogDietaryType = "veg"
+    coupon_badge: Optional[str] = None
+    source: Literal["swiggy_mcp_live", "demo_fallback"] = "demo_fallback"
