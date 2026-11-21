@@ -1,4 +1,4 @@
-"""Generate a 60.0-second, 1920x1080 30fps editorial B&W demo video with synced voiceover & captions."""
+"""Generate a 60.0-second, 1920x1080 30fps editorial B&W demo video with natural neural voiceover & synced scenes."""
 
 from __future__ import annotations
 
@@ -8,6 +8,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 import wave
 from pathlib import Path
 from typing import Any
@@ -32,6 +33,8 @@ OUT_MP4 = ROOT_DIR / "docs" / "moodbite_demo_60s.mp4"
 FFMPEG_LOG = ROOT_DIR / "docs" / "ffmpeg_render.log"
 STRESS_JSON = BACKEND_DIR / "evals" / "stress_suite_report.json"
 
+NEURAL_VOICE = "en-US-BrianNeural"
+
 # Strict Editorial Monochrome Tokens (Spec 05 & 10)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -39,80 +42,63 @@ SUBTLE = (247, 247, 247)
 HAIRLINE = (229, 229, 229)
 SECONDARY = (82, 82, 82)
 
-# Synced 60-second voiceover segments & matching bottom captions
+# Calm, natural ~115-word script across 6 synced beats (zero atempo speedup)
 VOICE_SEGMENTS = [
     {
-        "start": 0.0,
-        "end": 9.6,
         "spoken": (
-            "When you're exhausted after a long day, scrolling hundreds of menu items is friction. "
-            "This localhost prototype pairs a strict black-and-white chat UI with a 2.5-second state guardrail "
-            "and Swiggy's Food MCP server at mcp dot swiggy dot com slash food."
+            "Exhausted after a long day, scrolling endless menus is friction. "
+            "This localhost prototype pairs a monochrome chat UI with Swiggy's Food MCP."
         ),
         "caption": (
-            "When you're exhausted after a long day, scrolling hundreds of menu items is friction. "
-            "This localhost prototype pairs a strict black-and-white chat UI with a 2.5s state guardrail "
-            "and Swiggy's Food MCP server at mcp.swiggy.com/food."
+            "Exhausted after a long day, scrolling endless menus is friction. "
+            "This localhost prototype pairs a monochrome chat UI, 2.5s guardrail & Swiggy Food MCP (mcp.swiggy.com/food)."
         ),
     },
     {
-        "start": 10.0,
-        "end": 24.5,
         "spoken": (
-            "When a user says they're super tired, their mood is off, and they want something fast to cheer them up, "
-            "MoodBite extracts primary mood tired and down, effort to eat zero mess, and a 30-minute ETA cap, "
-            "then queries Swiggy's menu tools for fast comfort combos."
+            "Say you're super tired and want fast comfort. MoodBite extracts tired and down, "
+            "zero-mess effort, and a 30-minute cap, then queries Swiggy menus."
         ),
         "caption": (
-            "MoodBite extracts primary_mood: tired_and_down, effort_to_eat: zero_mess, and a 30-minute ETA cap"
-            "—then queries Swiggy's menu tools for fast comfort combos."
+            "MoodBite extracts primary_mood: tired_and_down, effort_to_eat: zero_mess & a 30-minute ETA cap"
+            "—then queries Swiggy's menu tools for comfort combos."
         ),
     },
     {
-        "start": 25.0,
-        "end": 31.6,
         "spoken": (
-            "It surfaces zero-mess meal combos under 30 minutes, pairing comfort mains like Chole Chawal "
-            "or Dum Biryani with cold drinks so the user doesn't have to assemble a meal from scratch."
+            "It surfaces zero-mess combos under 30 minutes, pairing comfort mains like Chole Chawal "
+            "or Dum Biryani with cold drinks."
         ),
         "caption": (
-            "It surfaces zero-mess meal combos under 30 minutes—pairing comfort mains like Chole Chawal "
-            "or Dum Biryani with cold drinks so the user doesn't have to assemble a meal from scratch."
+            "It surfaces zero-mess combos under 30 minutes—pairing comfort mains like Chole Chawal "
+            "or Dum Biryani with cold drinks."
         ),
     },
     {
-        "start": 32.0,
-        "end": 38.6,
         "spoken": (
-            "Tapping a refinement pill like Under 250 rupees immediately re-filters the combo list within budget "
-            "without forcing the user to re-explain how they feel."
+            "Tap Under 250 rupees to re-filter combos within budget—without re-explaining how you feel."
         ),
         "caption": (
-            "Tapping a refinement pill like Under ₹250 immediately re-filters the combo list within budget "
-            "without forcing the user to re-explain how they feel."
+            "Tap Under ₹250 to re-filter combos within budget—without re-explaining how you feel."
         ),
     },
     {
-        "start": 39.0,
-        "end": 44.6,
         "spoken": (
-            "Hard constraints lock in across turns. Here, a vegan user with peanut, dairy, and gluten allergies "
-            "gets only safe combos, enforced deterministically, not left to chance."
+            "Hard constraints stay locked. A vegan user with peanut, dairy, and gluten allergies "
+            "gets only safe combos—enforced deterministically."
         ),
         "caption": (
-            "Hard constraints lock in across turns. Here, a vegan user with peanut, dairy, and gluten allergies "
-            "gets only safe combos—enforced deterministically, not left to chance."
+            "Hard constraints lock across turns. A vegan user with peanut, dairy & gluten allergies "
+            "gets only safe combos—enforced deterministically."
         ),
     },
     {
-        "start": 45.0,
-        "end": 59.0,
         "spoken": (
-            "Clicking Add Combo to Swiggy Cart dispatches update food cart over MCP. Built for Swiggy Builders Club, "
-            "ready for production OAuth allowlisting and builder review."
+            "Clicking Add Combo calls update food cart over MCP. Built for Swiggy Builders Club"
+            "—ready for OAuth allowlisting and review."
         ),
         "caption": (
-            "Clicking Add Combo to Swiggy Cart dispatches update_food_cart over MCP. "
+            "Clicking Add Combo dispatches update_food_cart over MCP. "
             "Built for Swiggy Builders Club—ready for production OAuth allowlisting and builder review."
         ),
     },
@@ -137,7 +123,6 @@ FONTS = {
     "mono_lg": _load_font(r"C:\Windows\Fonts\consolab.ttf", 20),
     "mono": _load_font(r"C:\Windows\Fonts\consola.ttf", 17),
     "mono_sm": _load_font(r"C:\Windows\Fonts\consolab.ttf", 15),
-    "hindi": _load_font(r"C:\Windows\Fonts\Nirmala.ttc", 20),
 }
 
 
@@ -199,18 +184,141 @@ def _draw_pill(
     return w
 
 
-def _active_caption(sec: float) -> str:
-    for seg in VOICE_SEGMENTS:
-        if seg["start"] <= sec <= seg["end"]:
-            return seg["caption"]
-    for seg in reversed(VOICE_SEGMENTS):
-        if sec >= seg["start"]:
-            return seg["caption"]
-    return VOICE_SEGMENTS[0]["caption"]
+def _wav_duration_secs(path: Path) -> float:
+    with wave.open(str(path), "rb") as wf:
+        frames = wf.getnframes()
+        rate = wf.getframerate()
+        return frames / float(rate or 44100)
 
 
-def _draw_chrome(draw: ImageDraw.ImageDraw, frame_idx: int, chapter_label: str) -> None:
-    # Top editorial chrome
+def _fmt_mmss(sec: float) -> str:
+    s = max(0, int(round(sec)))
+    return f"{s // 60}:{s % 60:02d}"
+
+
+def _synth_edge_clips(ffmpeg_bin: str, work_dir: Path, rate_flag: str) -> list[tuple[Path, float]]:
+    uvx_bin = shutil.which("uvx")
+    if not uvx_bin:
+        raise SystemExit("uvx not found on PATH; cannot synthesize neural voiceover via edge-tts")
+
+    clips: list[tuple[Path, float]] = []
+    for idx, seg in enumerate(VOICE_SEGMENTS):
+        txt_path = work_dir / f"seg_{idx}.txt"
+        mp3_path = work_dir / f"seg_{idx}.mp3"
+        wav_path = work_dir / f"seg_{idx}.wav"
+        txt_path.write_text(seg["spoken"], encoding="utf-8")
+
+        last_err = ""
+        for attempt in range(3):
+            res = subprocess.run(
+                [
+                    uvx_bin,
+                    "--from",
+                    "edge-tts",
+                    "edge-tts",
+                    "--voice",
+                    NEURAL_VOICE,
+                    f"--rate={rate_flag}",
+                    "--file",
+                    str(txt_path),
+                    "--write-media",
+                    str(mp3_path),
+                ],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+            )
+            if res.returncode == 0 and mp3_path.exists() and mp3_path.stat().st_size > 0:
+                break
+            last_err = f"rc={res.returncode} stdout={res.stdout!r} stderr={res.stderr!r}"
+            time.sleep(1.0)
+        else:
+            raise SystemExit(f"edge-tts failed on segment {idx}: {last_err}")
+
+        subprocess.run(
+            [ffmpeg_bin, "-y", "-i", str(mp3_path), "-ar", "44100", "-ac", "2", str(wav_path)],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.PIPE,
+        )
+        clips.append((wav_path, _wav_duration_secs(wav_path)))
+        time.sleep(0.4)
+    return clips
+
+
+def _synthesize_voiceover_wav(ffmpeg_bin: str, work_dir: Path) -> tuple[Path, list[dict[str, Any]]]:
+    """Generate natural neural speech clips (edge-tts) at calm rate and pack inside 60.0s."""
+    # Reserve 0.4s lead-in + 0.7s trailing margin + min 0.35s * 5 breathing gaps = 2.85s -> max speech 57.15s
+    clips: list[tuple[Path, float]] = []
+    rate_used = "-4%"
+    total_speech = 0.0
+    for cand_rate in ("-4%", "+0%"):
+        rate_used = cand_rate
+        clips = _synth_edge_clips(ffmpeg_bin, work_dir, cand_rate)
+        total_speech = sum(dur for _, dur in clips)
+        if total_speech <= 57.15:
+            break
+    else:
+        raise SystemExit(f"Total neural speech {total_speech:.2f}s exceeds 57.15s budget even at {rate_used}")
+
+    slack = max(0.0, (DURATION_SECS - 0.4 - 0.7) - total_speech)
+    gap = min(1.0, max(0.35, slack / max(1, len(clips) - 1)))
+
+    timings: list[dict[str, Any]] = []
+    cursor = 0.4
+    for idx, (seg, (wav_path, dur)) in enumerate(zip(VOICE_SEGMENTS, clips)):
+        start_s = cursor
+        end_s = start_s + dur
+        cut_s = 0.0 if idx == 0 else max(0.0, start_s - min(0.15, gap / 2.0))
+        timings.append(
+            {
+                "index": idx,
+                "wav": wav_path,
+                "start": start_s,
+                "end": end_s,
+                "dur": dur,
+                "cut_s": cut_s,
+                "caption": seg["caption"],
+            }
+        )
+        cursor = end_s + gap
+
+    mixed_wav = work_dir / "voiceover_60s.wav"
+    cmd: list[str] = [ffmpeg_bin, "-y"]
+    filter_parts: list[str] = []
+    mix_labels: list[str] = []
+    for item in timings:
+        idx = item["index"]
+        cmd.extend(["-i", str(item["wav"])])
+        delay_ms = int(round(item["start"] * 1000))
+        label = f"a{idx}"
+        filter_parts.append(f"[{idx}:a]aformat=sample_rates=44100:channel_layouts=stereo,adelay={delay_ms}|{delay_ms}[{label}]")
+        mix_labels.append(f"[{label}]")
+
+    filter_complex = ";".join(filter_parts) + (
+        f";{''.join(mix_labels)}amix=inputs={len(timings)}:duration=longest:normalize=0,"
+        f"apad=whole_dur={DURATION_SECS},alimiter=limit=0.95[outa]"
+    )
+    cmd.extend(["-filter_complex", filter_complex, "-map", "[outa]", "-t", str(DURATION_SECS), str(mixed_wav)])
+    subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+
+    print(f"Synthesized natural neural voice ({NEURAL_VOICE}, rate={rate_used}, gap={gap:.2f}s, speech={total_speech:.2f}s):")
+    for item in timings:
+        print(f"  [{item['index']}] cut={item['cut_s']:.2f}s | {item['start']:.2f}s -> {item['end']:.2f}s (dur={item['dur']:.2f}s)")
+    return mixed_wav, timings
+
+
+def _active_caption(sec: float, timings: list[dict[str, Any]]) -> str:
+    chosen = timings[0]["caption"]
+    for item in timings:
+        if sec >= item["cut_s"]:
+            chosen = item["caption"]
+    return chosen
+
+
+def _draw_chrome(draw: ImageDraw.ImageDraw, frame_idx: int, chapter_label: str, timings: list[dict[str, Any]]) -> None:
     draw.rectangle((0, 0, WIDTH, 74), fill=WHITE)
     draw.line((0, 74, WIDTH, 74), fill=BLACK, width=3)
 
@@ -222,10 +330,9 @@ def _draw_chrome(draw: ImageDraw.ImageDraw, frame_idx: int, chapter_label: str) 
     time_label = f"00:{int(sec):02d} / 01:00"
     draw.text((WIDTH - 230, 24), time_label, font=FONTS["mono_lg"], fill=BLACK)
 
-    # Bottom synced narration caption bar + progress bar
     draw.rectangle((0, 968, WIDTH, 1070), fill=BLACK)
     draw.line((0, 968, WIDTH, 968), fill=BLACK, width=2)
-    caption = _active_caption(sec)
+    caption = _active_caption(sec, timings)
     cap_lines = _wrap_text(draw, caption, FONTS["caption"], WIDTH - 140)
     if len(cap_lines) == 1:
         draw.text((70, 1002), cap_lines[0], font=FONTS["caption"], fill=WHITE)
@@ -236,96 +343,6 @@ def _draw_chrome(draw: ImageDraw.ImageDraw, frame_idx: int, chapter_label: str) 
     progress = min(1.0, frame_idx / max(1, TOTAL_FRAMES - 1))
     draw.rectangle((0, HEIGHT - 10, WIDTH, HEIGHT), fill=HAIRLINE)
     draw.rectangle((0, HEIGHT - 10, int(WIDTH * progress), HEIGHT), fill=BLACK)
-
-
-def _wav_duration_secs(path: Path) -> float:
-    with wave.open(str(path), "rb") as wf:
-        frames = wf.getnframes()
-        rate = wf.getframerate()
-        return frames / float(rate or 44100)
-
-
-def _synthesize_voiceover_wav(ffmpeg_bin: str, work_dir: Path) -> Path:
-    """Synthesize the 6 timed narration segments via Windows SAPI and mix into a 60s WAV track."""
-    seg_meta_path = work_dir / "segments.json"
-    ps1_path = work_dir / "synth.ps1"
-
-    manifest = [
-        {"index": i, "text": seg["spoken"], "out": str(work_dir / f"seg_{i}_raw.wav")}
-        for i, seg in enumerate(VOICE_SEGMENTS)
-    ]
-    seg_meta_path.write_text(json.dumps(manifest, ensure_ascii=False), encoding="utf-8")
-
-    ps1_path.write_text(
-        "\n".join(
-            [
-                "$ErrorActionPreference = 'Stop'",
-                "Add-Type -AssemblyName System.Speech",
-                "$synth = New-Object System.Speech.Synthesis.SpeechSynthesizer",
-                "try { $synth.SelectVoice('Microsoft Zira Desktop') } catch {}",
-                "$synth.Rate = 1",
-                "$synth.Volume = 100",
-                f"$items = Get-Content -Raw -Encoding UTF8 '{seg_meta_path}' | ConvertFrom-Json",
-                "foreach ($item in $items) {",
-                "  $synth.SetOutputToWaveFile($item.out)",
-                "  $synth.Speak($item.text)",
-                "}",
-                "$synth.Dispose()",
-            ]
-        ),
-        encoding="utf-8",
-    )
-
-    subprocess.run(
-        ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(ps1_path)],
-        check=True,
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.PIPE,
-    )
-
-    fitted_paths: list[Path] = []
-    for i, seg in enumerate(VOICE_SEGMENTS):
-        raw_wav = work_dir / f"seg_{i}_raw.wav"
-        fitted_wav = work_dir / f"seg_{i}_fit.wav"
-        raw_dur = _wav_duration_secs(raw_wav)
-        slot_dur = max(1.0, (seg["end"] - seg["start"]) - 0.30)
-
-        af_chain = "aformat=sample_rates=44100:channel_layouts=stereo"
-        if raw_dur > slot_dur:
-            tempo = raw_dur / slot_dur
-            tempo_filters: list[str] = []
-            while tempo > 1.95:
-                tempo_filters.append("atempo=1.95")
-                tempo /= 1.95
-            tempo_filters.append(f"atempo={tempo:.4f}")
-            af_chain = ",".join(tempo_filters) + "," + af_chain
-
-        subprocess.run(
-            [ffmpeg_bin, "-y", "-i", str(raw_wav), "-af", af_chain, str(fitted_wav)],
-            check=True,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.PIPE,
-        )
-        fitted_paths.append(fitted_wav)
-
-    mixed_wav = work_dir / "voiceover_60s.wav"
-    cmd: list[str] = [ffmpeg_bin, "-y"]
-    filter_parts: list[str] = []
-    mix_labels: list[str] = []
-    for i, (seg, wav_path) in enumerate(zip(VOICE_SEGMENTS, fitted_paths)):
-        cmd.extend(["-i", str(wav_path)])
-        delay_ms = int(round(seg["start"] * 1000))
-        label = f"a{i}"
-        filter_parts.append(f"[{i}:a]aformat=sample_rates=44100:channel_layouts=stereo,adelay={delay_ms}|{delay_ms}[{label}]")
-        mix_labels.append(f"[{label}]")
-
-    filter_complex = ";".join(filter_parts) + (
-        f";{''.join(mix_labels)}amix=inputs={len(fitted_paths)}:duration=longest:normalize=0,"
-        f"apad=whole_dur={DURATION_SECS},alimiter=limit=0.95[outa]"
-    )
-    cmd.extend(["-filter_complex", filter_complex, "-map", "[outa]", "-t", str(DURATION_SECS), str(mixed_wav)])
-    subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
-    return mixed_wav
 
 
 def _collect_live_demo_data() -> dict[str, Any]:
@@ -374,7 +391,6 @@ def _collect_live_demo_data() -> dict[str, Any]:
 
 
 def _render_scene_0(draw: ImageDraw.ImageDraw, local_f: int, total_f: int, data: dict[str, Any]) -> None:
-    # 00:00 - 00:10 (Shot 1: The Problem & Architecture + Localhost Prototype Status)
     _draw_rounded_box(draw, (110, 102, 1810, 940), fill=WHITE, outline=BLACK, width=3, radius=24)
     w1 = _draw_pill(draw, 165, 142, "LOCALHOST PROTOTYPE • READY FOR OAUTH ALLOWLISTING", inverted=True, font=FONTS["mono"])
     _draw_pill(draw, 165 + w1 + 14, 142, "SWIGGY BUILDERS CLUB", inverted=False, font=FONTS["mono"])
@@ -420,7 +436,6 @@ def _render_scene_0(draw: ImageDraw.ImageDraw, local_f: int, total_f: int, data:
 
 
 def _render_scene_1(draw: ImageDraw.ImageDraw, local_f: int, total_f: int, data: dict[str, Any]) -> None:
-    # 00:10 - 00:25 (Shot 2: Vibe Check & Live State Extraction + Aligned search_menu Queries)
     tired = data["tired"]
     queries = tired["full_context"]["food_preferences"].get("search_queries", ["rajma chawal", "chole chawal", "cold drink"])
     formatted_queries = ", ".join(f'"{q}"' for q in queries)
@@ -433,21 +448,19 @@ def _render_scene_1(draw: ImageDraw.ImageDraw, local_f: int, total_f: int, data:
     _draw_pill(draw, 730, 114, "VEG", inverted=False, font=FONTS["mono_sm"])
     _draw_pill(draw, 820, 114, "CART: 0", inverted=False, font=FONTS["mono_sm"])
 
-    # Welcome bubble
     draw.text((140, 174), "MOODBITE", font=FONTS["mono_sm"], fill=SECONDARY)
     _draw_rounded_box(draw, (140, 198, 880, 260), fill=WHITE, outline=BLACK, width=2, radius=12)
     draw.text((160, 218), "Hey—how's the day going? Tell me the vibe and I'll sort out food.", font=FONTS["body_sm"], fill=BLACK)
 
-    # User typing animation (frames 0..95)
     user_msg = "super tired and mood is kinda off, want something fast that cheers me up"
-    chars = int(min(len(user_msg), max(8, (local_f / 95.0) * len(user_msg))))
+    chars = int(min(len(user_msg), max(8, (local_f / 85.0) * len(user_msg))))
     shown_user = user_msg[:chars]
     _draw_rounded_box(draw, (280, 280, 990, 358), fill=BLACK, outline=BLACK, width=2, radius=14)
     u_lines = _wrap_text(draw, shown_user, FONTS["body_sm"], 665)
     for li, line in enumerate(u_lines[:2]):
         draw.text((302, 294 + li * 25), line, font=FONTS["body_sm"], fill=WHITE)
 
-    if local_f > 110:
+    if local_f > 95:
         _draw_rounded_box(draw, (140, 380, 975, 420), fill=SUBTLE, outline=BLACK, width=2, radius=8)
         draw.text(
             (156, 391),
@@ -456,11 +469,11 @@ def _render_scene_1(draw: ImageDraw.ImageDraw, local_f: int, total_f: int, data:
             fill=BLACK,
         )
 
-    if 95 <= local_f < 180:
+    if 85 <= local_f < 155:
         _draw_rounded_box(draw, (140, 445, 590, 500), fill=WHITE, outline=BLACK, width=2, radius=14)
         dots = "." * (1 + (local_f // 10) % 3)
         draw.text((164, 460), f"Querying Swiggy MCP search_menu{dots}", font=FONTS["mono"], fill=SECONDARY)
-    elif local_f >= 180:
+    elif local_f >= 155:
         draw.text((140, 442), "MOODBITE", font=FONTS["mono_sm"], fill=SECONDARY)
         _draw_rounded_box(draw, (140, 466, 985, 538), fill=WHITE, outline=BLACK, width=2, radius=12)
         a_lines = _wrap_text(draw, tired["agent_message"], FONTS["body_sm"], 800)
@@ -482,7 +495,6 @@ def _render_scene_1(draw: ImageDraw.ImageDraw, local_f: int, total_f: int, data:
         _draw_rounded_box(draw, (162, 774, 962, 822), fill=BLACK, outline=BLACK, width=2, radius=8)
         draw.text((310, 788), f"+ ADD COMBO TO SWIGGY CART • ₹{combo['total_price_inr']}", font=FONTS["mono_sm"], fill=WHITE)
 
-    # Right: Live UserContext JSON + Aligned MCP Search Queries
     _draw_rounded_box(draw, (1060, 96, 1810, 944), fill=SUBTLE, outline=BLACK, width=3, radius=20)
     _draw_pill(draw, 1095, 118, "LIVE USERCONTEXT JSON & MCP QUERIES", inverted=True, font=FONTS["mono_sm"])
     ctx_json = json.dumps(tired["full_context"], indent=2)
@@ -495,18 +507,13 @@ def _render_scene_1(draw: ImageDraw.ImageDraw, local_f: int, total_f: int, data:
     draw.text((1120, 868), "Score = 0.40*Mood + 0.25*ETA + 0.15*Effort + 0.10*Rating + 0.10*Pair", font=FONTS["mono_sm"], fill=SECONDARY)
 
 
-def _render_scene_2(draw: ImageDraw.ImageDraw, local_f: int, total_f: int, data: dict[str, Any]) -> None:
-    # 00:25 - 00:45:
-    #   local_f   0..210 (0:25-0:32): Ranked Swiggy Combos
-    #   local_f 210..420 (0:32-0:39): One-Tap Under ₹250 Refinement (FULL untruncated titles!)
-    #   local_f 420..600 (0:39-0:45): Immutable Dietary & Allergy Guardrails
+def _render_scene_2_sub(draw: ImageDraw.ImageDraw, sub_mode: str, data: dict[str, Any]) -> None:
     tired = data["tired"]
     refined = data["refined"]
     allergy = data["allergy"]
-    refine_toggled = 210 <= local_f < 420
-    show_allergy = local_f >= 420
 
-    if not show_allergy:
+    if sub_mode in ("combos", "refine"):
+        refine_toggled = sub_mode == "refine"
         active = refined if refine_toggled else tired
         title_txt = "ONE-TAP REFINEMENT: ( Under ₹250 )" if refine_toggled else "RANKED SWIGGY COMBOS (ZERO-MESS + <=30 MINS)"
         draw.text((110, 96), title_txt, font=FONTS["h1"], fill=BLACK)
@@ -526,7 +533,6 @@ def _render_scene_2(draw: ImageDraw.ImageDraw, local_f: int, total_f: int, data:
             _draw_pill(draw, cx + 235, cy + 18, combo["dietary_type"].upper(), inverted=False, font=FONTS["mono_sm"])
             draw.text((cx + 555, cy + 22), f"{combo['restaurant']['eta_mins']} MINS • ₹{combo['total_price_inr']}", font=FONTS["mono"], fill=BLACK)
 
-            # Full wrapped title — never truncate drink names
             title_lines = _wrap_text(draw, combo["title"], FONTS["h3"], 785)
             for t_idx, t_line in enumerate(title_lines[:2]):
                 draw.text((cx + 24, cy + 64 + t_idx * 28), t_line, font=FONTS["h3"], fill=BLACK)
@@ -571,7 +577,6 @@ def _render_scene_2(draw: ImageDraw.ImageDraw, local_f: int, total_f: int, data:
 
 
 def _render_scene_3(draw: ImageDraw.ImageDraw, local_f: int, total_f: int, data: dict[str, Any]) -> None:
-    # 00:45 - 01:00 (Shot 4: Aligned Swiggy Cart Sync + Stress Scorecard + Builders Club Closing)
     tired = data["tired"]
     stress = data["stress"]
     combo = tired["recommendations"][0]
@@ -579,14 +584,13 @@ def _render_scene_3(draw: ImageDraw.ImageDraw, local_f: int, total_f: int, data:
     item1 = combo["items"][1]
     total_price = int(combo["total_price_inr"])
     assert item0["price_inr"] + item1["price_inr"] == total_price
-    cart_synced = local_f >= 90
+    cart_synced = local_f >= int(2.2 * FPS)
 
     burst_item = next((r for r in stress.get("results", []) if r.get("number") == 28), None)
     burst_p95 = f"{burst_item['latency_ms']:.2f} ms" if burst_item else "passed"
 
     draw.text((110, 96), "ONE-TAP SWIGGY CART SYNC & STRESS SCORECARD", font=FONTS["h1"], fill=BLACK)
 
-    # Left: Strictly aligned cart card & POST /api/v1/cart/add-combo payload
     _draw_rounded_box(draw, (110, 156, 940, 646), fill=WHITE, outline=BLACK, width=3, radius=18)
     _draw_pill(
         draw,
@@ -649,7 +653,6 @@ def _render_scene_3(draw: ImageDraw.ImageDraw, local_f: int, total_f: int, data:
     cta = f"[OK] ADDED TO SWIGGY CART (₹{total_price})" if cart_synced else f"+ ADD COMBO TO SWIGGY CART • ₹{total_price}"
     draw.text((255 if cart_synced else 265, 569), cta, font=FONTS["mono"], fill=BLACK if cart_synced else WHITE)
 
-    # Right: Stress Scorecard summary
     _draw_rounded_box(draw, (980, 156, 1810, 646), fill=SUBTLE, outline=BLACK, width=3, radius=18)
     _draw_pill(draw, 1015, 182, f"STRESS SUITE: {stress['passed']}/{stress['total_prompts']} PASS", inverted=True, font=FONTS["mono_sm"])
     _draw_pill(draw, 1340, 182, "0 SAFETY FAILURES", inverted=False, font=FONTS["mono_sm"])
@@ -668,7 +671,6 @@ def _render_scene_3(draw: ImageDraw.ImageDraw, local_f: int, total_f: int, data:
         _draw_pill(draw, 1680, ry, status_txt, inverted=(ri == 0), font=FONTS["mono_sm"])
         draw.line((1015, ry + 50, 1775, ry + 50), fill=HAIRLINE, width=1)
 
-    # Bottom Closing Banner for Swiggy Builders Club (fits cleanly above y=968 caption strip)
     _draw_rounded_box(draw, (110, 676, 1810, 940), fill=BLACK, outline=BLACK, width=3, radius=20)
     draw.text((155, 706), "BUILT FOR SWIGGY BUILDERS CLUB (builders@swiggy.in)", font=FONTS["h1"], fill=WHITE)
     draw.text(
@@ -699,16 +701,34 @@ def build_video() -> None:
     OUT_MP4.parent.mkdir(parents=True, exist_ok=True)
     data = _collect_live_demo_data()
 
-    scenes = [
-        (0, 300, "01 / THE PROBLEM & ARCHITECTURE (0:00–0:10)", _render_scene_0),
-        (300, 750, "02 / VIBE CHECK & STATE EXTRACTION (0:10–0:25)", _render_scene_1),
-        (750, 1350, "03 / LIVE COMBOS, REFINE & SAFETY (0:25–0:45)", _render_scene_2),
-        (1350, 1800, "04 / SWIGGY CART SYNC & SCORECARD (0:45–1:00)", _render_scene_3),
-    ]
-
     with tempfile.TemporaryDirectory() as tmp:
         work_dir = Path(tmp)
-        voiceover_wav = _synthesize_voiceover_wav(ffmpeg_bin, work_dir)
+        voiceover_wav, timings = _synthesize_voiceover_wav(ffmpeg_bin, work_dir)
+
+        c0, c1, c2, c3, c4, c5 = [int(round(t["cut_s"] * FPS)) for t in timings]
+        scenes = [
+            (c0, c1, f"01 / ARCHITECTURE ({_fmt_mmss(timings[0]['cut_s'])}–{_fmt_mmss(timings[1]['cut_s'])})", _render_scene_0),
+            (c1, c2, f"02 / VIBE CHECK & STATE ({_fmt_mmss(timings[1]['cut_s'])}–{_fmt_mmss(timings[2]['cut_s'])})", _render_scene_1),
+            (
+                c2,
+                c3,
+                f"03 / RANKED COMBOS ({_fmt_mmss(timings[2]['cut_s'])}–{_fmt_mmss(timings[3]['cut_s'])})",
+                lambda d, lf, tf, dat: _render_scene_2_sub(d, "combos", dat),
+            ),
+            (
+                c3,
+                c4,
+                f"04 / UNDER ₹250 REFINE ({_fmt_mmss(timings[3]['cut_s'])}–{_fmt_mmss(timings[4]['cut_s'])})",
+                lambda d, lf, tf, dat: _render_scene_2_sub(d, "refine", dat),
+            ),
+            (
+                c4,
+                c5,
+                f"05 / SAFETY GUARDRAILS ({_fmt_mmss(timings[4]['cut_s'])}–{_fmt_mmss(timings[5]['cut_s'])})",
+                lambda d, lf, tf, dat: _render_scene_2_sub(d, "allergy", dat),
+            ),
+            (c5, TOTAL_FRAMES, f"06 / SWIGGY CART & SCORECARD ({_fmt_mmss(timings[5]['cut_s'])}–1:00)", _render_scene_3),
+        ]
 
         cmd = [
             ffmpeg_bin,
@@ -737,7 +757,6 @@ def build_video() -> None:
 
             frame_cache: dict[tuple[int, int], bytes] = {}
             for frame_idx in range(TOTAL_FRAMES):
-                # Quantize to 6-frame steps (every 0.2s) and write full 30 FPS stream to ffmpeg
                 bucket_frame = (frame_idx // 6) * 6
                 for scene_idx, (start, end, label, fn) in enumerate(scenes):
                     if start <= frame_idx < end:
@@ -747,7 +766,7 @@ def build_video() -> None:
                         if raw_bytes is None:
                             img = Image.new("RGB", (WIDTH, HEIGHT), WHITE)
                             draw = ImageDraw.Draw(img)
-                            _draw_chrome(draw, bucket_frame, label)
+                            _draw_chrome(draw, bucket_frame, label, timings)
                             fn(draw, local_f, end - start, data)
                             raw_bytes = img.tobytes()
                             frame_cache[cache_key] = raw_bytes
@@ -763,7 +782,7 @@ def build_video() -> None:
             err_txt = FFMPEG_LOG.read_text(encoding="utf-8", errors="replace")
             raise SystemExit(f"ffmpeg exited with {ret}:\n{err_txt}")
     FFMPEG_LOG.unlink(missing_ok=True)
-    print(f"Generated synced 60s 1080p demo video with voiceover: {OUT_MP4}")
+    print(f"Generated synced 60s 1080p demo video with natural neural voiceover: {OUT_MP4}")
 
 
 if __name__ == "__main__":
